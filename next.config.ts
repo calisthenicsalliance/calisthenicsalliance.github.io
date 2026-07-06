@@ -1,8 +1,12 @@
+import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig: NextConfig = {
+	reactCompiler: true,
 	output: "export",
 	images: {
 		unoptimized: true,
@@ -10,4 +14,4 @@ const nextConfig: NextConfig = {
 	assetPrefix: isGitHubPages ? "/calisthenics-alliance/" : undefined,
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

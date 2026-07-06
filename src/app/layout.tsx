@@ -1,30 +1,12 @@
-import { Geist, Geist_Mono, Roboto_Slab } from "next/font/google";
+import "@/app/globals.css";
+import { ReactNode } from "react";
 
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
+interface RootLayoutProps {
+	children: ReactNode;
+}
 
-const robotoSlab = Roboto_Slab({ subsets: ["latin"], variable: "--font-serif" });
-
-const fontSans = Geist({
-	subsets: ["latin"],
-	variable: "--font-sans",
-});
-
-const fontMono = Geist_Mono({
-	subsets: ["latin"],
-	variable: "--font-mono",
-});
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	return (
-		<html
-			lang="en"
-			suppressHydrationWarning
-			className={cn("antialiased", fontSans.variable, fontMono.variable, "font-serif", robotoSlab.variable)}>
-			<body>
-				<ThemeProvider>{children}</ThemeProvider>
-			</body>
-		</html>
-	);
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }: RootLayoutProps) {
+	return children;
 }

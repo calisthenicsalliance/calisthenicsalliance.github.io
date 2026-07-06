@@ -1,0 +1,22 @@
+{
+	"metadata": {
+		"title": "Calisthenics Alliance",
+		"description": "Calisthenics Alliance é uma comunidade de entusiastas de calistenia."
+	},
+	"home": {
+		"welcome": "Bem-vindo ao nosso site!"
+	},
+	"navbar": {
+		"regulation": "Regulamento",
+		"rankings": "Classificações"
+	},
+	"footer": {
+		"copyright": "© {year} Calisthenics Alliance League. Todos os direitos reservados.",
+		"contact": "Contato",
+		"privacy": "Privacidade",
+		"termsOfService": "Termos de Serviço"
+	},
+	"notFound": {
+		"title": "Página Não Encontrada"
+	}
+}
