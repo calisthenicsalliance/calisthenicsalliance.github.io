@@ -1,8 +1,18 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-	locales: ["en", "pt"],
-	defaultLocale: "en",
+	locales: ["pt", "en"],
+	defaultLocale: "pt",
+	// no middleware in a static export, so every locale is addressed explicitly
 	localePrefix: "always",
-	localeDetection: false,
 });
+
+export type Locale = (typeof routing.locales)[number];
+
+export interface LocaleProps {
+	params: Promise<{ locale: string }>;
+}
+
+export function localeParams() {
+	return routing.locales.map((locale) => ({ locale }));
+}
