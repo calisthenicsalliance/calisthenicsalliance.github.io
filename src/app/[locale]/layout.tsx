@@ -1,43 +1,48 @@
-import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+import { Anton, Inter, Geist_Mono } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Roboto_Slab, Geist, Geist_Mono } from "next/font/google";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
+import { localeAlternates, localeParams, routing, type LocaleProps } from "@/i18n/routing";
+import { site } from "@/config/site";
 import { Navbar, Footer } from "@/components/layout";
+import { MotionProvider } from "@/components/shared/motion-provider";
+import { cn } from "@/lib/utils";
 
-const robotoSlab = Roboto_Slab({
-	subsets: ["latin"],
-	variable: "--font-serif",
-});
+const fontDisplay = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton" });
+const fontSans = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const fontMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
-const fontSans = Geist({
-	subsets: ["latin"],
-	variable: "--font-sans",
-});
-
-const fontMono = Geist_Mono({
-	subsets: ["latin"],
-	variable: "--font-mono",
-});
-
-interface LocaleLayoutProps {
+interface LocaleLayoutProps extends LocaleProps {
 	children: React.ReactNode;
-	params: Promise<{ locale: string }>;
 }
 
-export function generateStaticParams() {
-	return routing.locales.map((locale) => ({ locale }));
-}
+export const generateStaticParams = localeParams;
 
-export async function generateMetadata({ params }: LocaleLayoutProps) {
+export async function generateMetadata({ params }: LocaleLayoutProps): Promise<Metadata> {
 	const { locale } = await params;
-	const translations = await getTranslations({ locale, namespace: "metadata" });
+	const t = await getTranslations({ locale, namespace: "metadata" });
 
 	return {
-		title: translations("title"),
-		description: translations("description"),
+		metadataBase: new URL(site.url),
+		title: { default: t("title"), template: t("template") },
+		description: t("description"),
+		applicationName: site.name,
+		alternates: localeAlternates(locale),
+		openGraph: {
+			type: "website",
+			siteName: site.name,
+			locale: locale === "pt" ? "pt_PT" : "en_GB",
+			title: t("title"),
+			description: t("description"),
+			images: [{ url: "/images/open-cal-poster.jpg", width: 1080, height: 1350, alt: "Open CAL" }],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("title"),
+			description: t("description"),
+			images: ["/images/open-cal-poster.jpg"],
+		},
 	};
 }
 
@@ -53,15 +58,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 	return (
 		<html
 			lang={locale}
-			suppressHydrationWarning
-			className={cn("antialiased", fontSans.variable, fontMono.variable, "font-serif", robotoSlab.variable)}>
-			<body className="flex min-h-screen flex-col">
+			data-scroll-behavior="smooth"
+			className={cn(fontSans.variable, fontDisplay.variable, fontMono.variable)}>
+			<body className="flex min-h-screen flex-col overflow-x-hidden">
 				<NextIntlClientProvider locale={locale}>
-					<ThemeProvider>
+					<MotionProvider>
 						<Navbar />
-						<main className="flex-1 pt-16">{children}</main>
+						<main className="flex-1">{children}</main>
 						<Footer />
-					</ThemeProvider>
+					</MotionProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>

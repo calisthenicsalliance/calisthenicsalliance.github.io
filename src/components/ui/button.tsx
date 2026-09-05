@@ -1,4 +1,3 @@
-import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -17,6 +16,7 @@ const buttonVariants = cva(
 				destructive:
 					"bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
 				link: "text-primary underline-offset-4 hover:underline",
+				brand: "bg-brand text-white shadow-[0_0_0_0_var(--brand)] hover:bg-brand-bright hover:shadow-[0_8px_30px_-8px_var(--brand)]",
 			},
 			size: {
 				default:
@@ -28,6 +28,9 @@ const buttonVariants = cva(
 				"icon-xs": "size-5 rounded-sm [&_svg:not([class*='size-'])]:size-2.5",
 				"icon-sm": "size-6 [&_svg:not([class*='size-'])]:size-3",
 				"icon-lg": "size-8 [&_svg:not([class*='size-'])]:size-4",
+				// display-scale calls to action used across the marketing pages
+				xl: "h-11 gap-2 px-6 text-sm font-extrabold tracking-[0.045em] uppercase [&_svg:not([class*='size-'])]:size-4",
+				"2xl": "h-14 gap-2.5 px-9 text-[0.9375rem] font-extrabold tracking-[0.045em] uppercase [&_svg:not([class*='size-'])]:size-5",
 			},
 		},
 		defaultVariants: {
@@ -37,14 +40,21 @@ const buttonVariants = cva(
 	},
 );
 
+// for actions; anything that navigates is a link styled with buttonVariants
 function Button({
 	className,
-	variant = "default",
-	size = "default",
+	variant,
+	size,
+	type = "button",
 	...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
 	return (
-		<ButtonPrimitive data-slot="button" className={cn(buttonVariants({ variant, size, className }))} {...props} />
+		<button
+			type={type}
+			data-slot="button"
+			className={cn(buttonVariants({ variant, size, className }))}
+			{...props}
+		/>
 	);
 }
 

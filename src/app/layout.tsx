@@ -1,12 +1,7 @@
 import "@/app/globals.css";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-interface RootLayoutProps {
-	children: ReactNode;
-}
-
-// Since we have a `not-found.tsx` page on the root, a layout file
-// is required, even if it's just passing children through.
-export default function RootLayout({ children }: RootLayoutProps) {
+// only a parent for page.tsx and not-found.tsx; the real shell is in [locale]/layout.tsx
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return children;
 }

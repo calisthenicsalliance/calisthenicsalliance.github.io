@@ -6,6 +6,7 @@ export interface SeasonEvent {
 	date: string | null; // ISO date, or null when the date is still to be announced
 	venue: string | null; // event venue, or null when the venue is still to be announced
 	city: string | null; // event city, or null when the city is still to be announced
+	mapUrl: string | null; // google maps link for the venue
 	phase: EventPhase;
 }
 
@@ -13,6 +14,7 @@ export interface ScheduledEvent extends SeasonEvent {
 	date: string;
 	venue: string;
 	city: string;
+	mapUrl: string;
 }
 
 export const openCal: ScheduledEvent = {
@@ -21,6 +23,8 @@ export const openCal: ScheduledEvent = {
 	date: "2026-10-24",
 	venue: "Pavilhão Desportivo Rainha D. Leonor",
 	city: "Caldas da Rainha",
+	// the pin is Bar-Wings, the calisthenics club inside the pavilion
+	mapUrl: "https://www.google.com/maps/place/Bar-Wings+Clube+de+Calistenia+de+Caldas+da+Rainha/@39.4028125,-9.1440602,17z/data=!4m6!3m5!1s0xd18b3004b592f69:0x267d42a0c56b1ce5!8m2!3d39.4028125!4d-9.1440602!16s%2Fg%2F11xw23_93b",
 	phase: "open",
 };
 
@@ -30,6 +34,7 @@ const tba = (id: string, phase: EventPhase): SeasonEvent => ({
 	date: null,
 	venue: null,
 	city: null,
+	mapUrl: null,
 	phase,
 });
 
@@ -47,7 +52,7 @@ export const season = {
 
 	scoring: {
 		win: 50,
-		draw: 25,
+		draw: 30,
 		loss: 10,
 		absent: 0,
 		maxBonus: 30, // performance bonus: B = 30 x (N - P) / (N - 1)
@@ -62,7 +67,7 @@ export const season = {
 		],
 
 		// ISO date of the last day to register, or null while unannounced
-		deadline: null as string | null,
+		deadline: "2026-10-23" as string | null,
 	},
 };
 

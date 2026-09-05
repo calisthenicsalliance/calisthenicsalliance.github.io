@@ -1,22 +1,470 @@
 {
 	"metadata": {
 		"title": "Calisthenics Alliance",
-		"description": "Calisthenics Alliance é uma comunidade de entusiastas de calistenia."
+		"template": "%s · Calisthenics Alliance",
+		"description": "A liga nacional de calistenia focada em Endurance. Battles 1v1, um ranking nacional e uma final que decide o melhor atleta da época."
 	},
-	"home": {
-		"welcome": "Bem-vindo ao nosso site!"
+	"common": {
+		"register": "Inscreve-te",
+		"registerLong": "Inscrever na época {season}",
+		"seeOpenCal": "Ver o Open CAL",
+		"downloadRegulation": "Regulamento (PDF)",
+		"watchTrailer": "Ver o trailer",
+		"openMenu": "Abrir menu",
+		"closeMenu": "Fechar menu",
+		"menu": "Menu",
+		"tba": "A anunciar",
+		"scroll": "Desliza",
+		"backHome": "Voltar ao início"
 	},
-	"navbar": {
-		"regulation": "Regulamento",
-		"rankings": "Classificações"
+	"nav": {
+		"about": "A Liga",
+		"openCal": "Open CAL",
+		"register": "Inscrições",
+		"rankings": "Ranking",
+		"partners": "Parceiros"
 	},
 	"footer": {
-		"copyright": "© {year} Calisthenics Alliance League. Todos os direitos reservados.",
-		"contact": "Contato",
-		"privacy": "Privacidade",
-		"termsOfService": "Termos de Serviço"
+		"tagline": "Strength · Endurance · For All Levels",
+		"navigation": "Navegação",
+		"contact": "Contactos",
+		"organizedBy": "Organizado pela",
+		"copyright": "© {year} Calisthenics Alliance. Todos os direitos reservados.",
+		"regulationNote": "Regulamento Interno v{version}"
+	},
+	"home": {
+		"hero": {
+			"eyebrow": "Época {season} · Portugal",
+			"titleTop": "Calisthenics",
+			"titleBottom": "Alliance",
+			"subtitle": "A liga nacional de calistenia focada em Endurance. Battles 1v1, um ranking nacional e uma final que decide o melhor atleta da época.",
+			"countdownLabel": "Open CAL começa em",
+			"countdownLive": "É hoje. Vemo-nos no pavilhão.",
+			"days": "dias",
+			"hours": "horas",
+			"minutes": "min",
+			"seconds": "seg"
+		},
+		"nextEvent": {
+			"eyebrow": "Evento de abertura",
+			"title": "Open CAL",
+			"lead": "Uma rotina para todos os atletas da Liga. O teu resultado define a tua divisão competitiva e a tua posição inicial no ranking nacional.",
+			"dateLabel": "Data",
+			"venueLabel": "Local",
+			"levelLabel": "Nível",
+			"level": "Para todos os níveis",
+			"cta": "Detalhes do evento"
+		},
+		"pillars": {
+			"eyebrow": "Porquê a CAL",
+			"title": "Três pilares",
+			"lead": "A CAL nasceu para responder à inexistência de uma estrutura competitiva regular, contínua e devidamente regulamentada para Endurance em Portugal.",
+			"items": [
+				{
+					"title": "Estrutura contínua",
+					"body": "Uma época desportiva onde não irão faltar eventos: cerimónia de abertura, quatro Provas regulares e uma Grand Final."
+				},
+				{
+					"title": "Arbitragem rigorosa",
+					"body": "Uma Comitiva Nacional de Júris com critérios uniformes. Amplitude completa, lockout obrigatório e zero kipping."
+				},
+				{
+					"title": "Ranking com propósito",
+					"body": "Cada Battle conta. Pontuação base mais bónus de performance, num ranking nacional por categoria e divisão."
+				}
+			]
+		},
+		"season": {
+			"eyebrow": "Como funciona a época",
+			"title": "Da abertura ao título",
+			"lead": "Três fases, uma época desportiva. Os atletas acumulam pontos ao longo da época regular e os melhores disputam o título na Grand Final.",
+			"phases": [
+				{
+					"tag": "Fase 1",
+					"title": "Open CAL",
+					"body": "Evento de abertura, obrigatório para todos os inscritos. Determina a divisão de cada atleta e a posição inicial no ranking."
+				},
+				{
+					"tag": "Fase 2",
+					"title": "4 Provas",
+					"body": "A época regular. Battles 1v1 entre atletas da mesma categoria e divisão. Cada atleta é convocado para três/quatro Provas."
+				},
+				{
+					"tag": "Fase 3",
+					"title": "Grand Final",
+					"body": "Quadro eliminatório com os oito melhores de cada categoria e divisão. Determina o título de campeão da época."
+				}
+			]
+		},
+		"divisions": {
+			"eyebrow": "Categorias e divisões",
+			"title": "Competes contra o teu nível",
+			"lead": "Duas categorias e até três divisões. Cada divisão com as suas rotinas, convocatórias, ranking e prémios próprios.",
+			"categoriesLabel": "Categorias",
+			"categories": ["Feminino", "Masculino"],
+			"items": [
+				{
+					"name": "Elite",
+					"body": "Atletas de topo, com vasta experiência competitiva e domínio avançado das componentes técnicas e físicas."
+				},
+				{
+					"name": "Advanced",
+					"body": "Atletas com alguma experiência competitiva e domínio das componentes técnicas e físicas da modalidade."
+				},
+				{
+					"name": "Promises",
+					"body": "Atletas recreativos ou em fase inicial de percurso competitivo, com foco na evolução e na experiência."
+				}
+			],
+			"note": "A tua divisão é atribuída com base no Open CAL e mantém-se inalterada durante toda a época desportiva."
+		},
+		"scoring": {
+			"eyebrow": "Pontuação",
+			"title": "Ganhar importa",
+			"lead": "Cada Battle dá pontos, mesmo em derrota. A vitória é o mais importante, mas é o teu tempo que te distingue de atletas com resultados semelhantes.",
+			"win": "Vitória",
+			"draw": "Empate",
+			"loss": "Derrota",
+			"absent": "Ausência",
+			"bonusTitle": "Bónus de performance",
+			"bonusBody": "Até 30 pontos, distribuídos pelo tempo total de execução.",
+			"bonusLegend": "N = atletas elegíveis · P = posição por tempo/divisão"
+		},
+		"partners": {
+			"eyebrow": "Parceiros",
+			"title": "Construída com a comunidade",
+			"lead": "A CAL é organizada em colaboração com clubes, atletas e entidades da comunidade nacional de calistenia."
+		},
+		"cta": {
+			"title": "Pronto para competir?",
+			"lead": "As inscrições para a época {season} estão abertas!\nA partir dos 14 anos, para todos os atletas de todos os níveis.",
+			"secondary": "Ler o regulamento"
+		}
+	},
+	"about": {
+		"meta": {
+			"title": "A Liga",
+			"description": "A Calisthenics Alliance é uma liga de calistenia focada em Endurance, organizada pela Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha."
+		},
+		"hero": {
+			"eyebrow": "Sobre a CAL",
+			"title": "Uma liga para Endurance",
+			"lead": "A Calisthenics Alliance é um projeto criado pela Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha, em colaboração com outros clubes, atletas e entidades da comunidade nacional de calistenia, para organizar, regulamentar e promover a calistenia competitiva em Portugal."
+		},
+		"story": {
+			"title": "Porquê agora",
+			"body": "A calistenia em Portugal não para de crescer, mas faltava-lhe uma estrutura competitiva regular, contínua e devidamente regulamentada para a disciplina de Endurance. A CAL assenta em três pilares: uma estrutura competitiva uniforme e contínua, um sistema de arbitragem rigoroso e imparcial, e um modelo classificatório que garante propósito, progressão e compromisso ao longo de toda a época."
+		},
+		"objectives": {
+			"eyebrow": "Objetivos",
+			"title": "Ao que nos propomos",
+			"items": [
+				"Desenvolver a calistenia competitiva em Portugal",
+				"Criar uma estrutura competitiva uniforme e contínua",
+				"Elevar o nível técnico e físico dos atletas através da competição regular",
+				"Estabelecer um ranking nacional na disciplina de Endurance",
+				"Promover a prática segura da modalidade e a integridade física dos atletas",
+				"Reforçar uma comunidade coesa, ativa e duradoura em torno da modalidade"
+			]
+		},
+		"format": {
+			"eyebrow": "Formato",
+			"title": "Como se disputa a época",
+			"battleTitle": "A Battle",
+			"battleBody": "Nas Provas da época regular, dois atletas da mesma categoria e divisão executam a mesma rotina em simultâneo. Vence quem completar a rotina competitiva em menos tempo.",
+			"routineTitle": "A rotina",
+			"routineBody": "Cada rotina define os exercícios e a sua ordem, o número de repetições, a carga adicional quando aplicável e o timecap. É divulgada com pelo menos 30 dias de antecedência.",
+			"callupTitle": "Convocatórias",
+			"callupBody": "Os emparelhamentos são definidos manualmente pela organização, com base na proximidade no ranking. O mesmo par de atletas nunca se defronta duas vezes na mesma época regular.",
+			"finalTitle": "Grand Final",
+			"finalBody": "Qualificam-se os oito melhores de cada categoria e divisão — ou os quatro primeiros, em divisões com menos de oito atletas. Quadro eliminatório, sem pontos para o ranking."
+		},
+		"judging": {
+			"eyebrow": "Arbitragem",
+			"title": "Critérios sempre iguais",
+			"body": "A Comitiva Nacional de Júris (CNJ) assegura a uniformidade dos critérios de validação em todos os eventos. As decisões sobre a validade de uma repetição são imediatas, finais e vinculativas — não há revisão por vídeo nem recurso durante a execução.",
+			"criteriaTitle": "Toda a repetição exige",
+			"criteria": [
+				"Amplitude de movimento completa",
+				"Lockout no ponto inicial e final do movimento",
+				"Proibição de kipping — sem impulso ou balanço",
+				"Movimento uniforme e controlado em todas as fases"
+			]
+		},
+		"regulation": {
+			"eyebrow": "Documento oficial",
+			"title": "Regulamento Interno",
+			"body": "Tudo o que está neste site é um resumo. O documento oficial define inscrições, elegibilidade, protocolo dos eventos, regras técnicas, arbitragem, pontuação, Grand Final, disciplina e proteção de dados.",
+			"meta": "Versão {version} · {date} · PT · 31 páginas",
+			"onlyPt": "O regulamento está disponível apenas em português."
+		}
+	},
+	"openCal": {
+		"meta": {
+			"title": "Open CAL",
+			"description": "O evento de abertura da Calisthenics Alliance. {date}, Pavilhão Desportivo Rainha D. Leonor, Caldas da Rainha. Para todos os níveis."
+		},
+		"hero": {
+			"eyebrow": "Evento de abertura · Época {season}",
+			"title": "Open CAL",
+			"subtitle": "Uma rotina. Uma sala cheia. O momento em que a época começa.",
+			"dateLabel": "Data",
+			"venueLabel": "Local",
+			"statusLabel": "Inscrições",
+			"statusOpen": "Abertas"
+		},
+		"what": {
+			"eyebrow": "O que é",
+			"title": "O início da tua época",
+			"body": "O Open CAL é o evento de abertura da Liga e a participação é obrigatória para todos os atletas inscritos. Executas uma única rotina competitiva, distinta para cada categoria. O resultado determina a divisão em que vais competir durante toda a época e a tua posição inicial no ranking nacional.",
+			"highlights": [
+				{
+					"title": "Uma rotina",
+					"body": "Uma única rotina competitiva por categoria, divulgada com pelo menos 30 dias de antecedência."
+				},
+				{
+					"title": "Divisão única",
+					"body": "Ainda não há divisões: no Open CAL todos os atletas da mesma categoria competem juntos."
+				},
+				{
+					"title": "Sem pontos",
+					"body": "O Open CAL não atribui pontuação. Define a divisão e a posição de partida no ranking."
+				},
+				{
+					"title": "Para todos os níveis",
+					"body": "Não tens de ser capaz de concluir a rotina. A divisão é atribuída com base no que executares."
+				}
+			]
+		},
+		"classification": {
+			"eyebrow": "Classificação",
+			"title": "Como és ordenado",
+			"lead": "Os critérios são aplicados por esta ordem, até desempatar.",
+			"items": [
+				"Maior número de exercícios totalmente concluídos",
+				"Maior número de repetições válidas executadas",
+				"Menor tempo total de execução",
+				"Sorteio realizado pela organização no final do evento"
+			],
+			"note": "Os atletas são colocados por ordem decrescente e repartidos de forma equilibrada pelas divisões abertas, cada uma com um número par de atletas."
+		},
+		"day": {
+			"eyebrow": "No dia",
+			"title": "Como decorre",
+			"steps": [
+				{
+					"title": "Chegada",
+					"body": "Recomenda-se estar junto à área de competição 30 minutos antes da hora prevista para a tua rotina."
+				},
+				{
+					"title": "Aquecimento",
+					"body": "Cada atleta é responsável pelo seu aquecimento, feito fora da área de competição, num local designado pela organização."
+				},
+				{
+					"title": "Chamada",
+					"body": "Após a chamada tens 5 minutos de preparação e uma tolerância máxima de 10 minutos para te apresentares."
+				},
+				{
+					"title": "Execução",
+					"body": "Os exercícios são executados pela ordem definida. A sua execução só tem de ser unbroken se a rotina o exigir."
+				},
+				{
+					"title": "Timecap",
+					"body": "Após o termino do tempo limite, a execução é interrompida e o resultado é registado, mesmo que a rotina não tenha sido concluída."
+				}
+			]
+		},
+		"special": {
+			"title": "A regra exclusiva ao Open CAL",
+			"body": "Se não conseguires iniciar ou concluir as repetições de um exercício, podes optar por terminá-lo antecipadamente e avançar para o seguinte, comunicando ao júri a tua decisão. Contam as repetições válidas até à transição. Esta decisão é irreversível."
+		},
+		"exercises": {
+			"eyebrow": "Técnica",
+			"title": "Exercícios permitidos",
+			"lead": "As rotinas da CAL podem incluir os seguintes exercícios. Todas as repetições exigem amplitude completa, lockout, movimento controlado e zero kipping.",
+			"items": [
+				"Muscle-Up",
+				"Ring Row",
+				"Pull-Up / Chin-Up",
+				"Dip / Straight Bar Dip",
+				"Push-Up / Low Bar Push-Up",
+				"Squat / Lunge"
+			]
+		},
+		"equipment": {
+			"eyebrow": "Equipamento",
+			"title": "O que podes levar",
+			"allowedTitle": "Permitido",
+			"allowed": [
+				"Calçado desportivo (obrigatório)",
+				"Magnésio sólido ou líquido, por tua conta",
+				"Cinto de lastro próprio (corrente ou fita)",
+				"Wrist wraps, tape e proteções articulares"
+			],
+			"forbiddenTitle": "Proibido",
+			"forbidden": [
+				"Resinas, colas e outros aderentes",
+				"Cargas e coletes de peso próprios",
+				"Grips com gancho, ganchos de suspensão e fitas de fixação à barra"
+			]
+		},
+		"cta": {
+			"title": "{date}, Caldas da Rainha",
+			"lead": "As vagas são limitadas por categoria.\nA admissão é feita aos pares."
+		}
+	},
+	"register": {
+		"meta": {
+			"title": "Inscrições",
+			"description": "Inscreve-te na época {season} da Calisthenics Alliance. A partir dos 14 anos, para todos os níveis."
+		},
+		"hero": {
+			"eyebrow": "Época {season}",
+			"title": "Inscrições",
+			"lead": "Uma inscrição cobre a época inteira: Open CAL, as Provas da época regular e, caso te qualifiques, a Grande Final."
+		},
+		"steps": {
+			"eyebrow": "Passo a passo",
+			"title": "Como te inscreves",
+			"items": [
+				{
+					"title": "Preenche o formulário",
+					"body": "Ficha de atleta, incluindo a equipa que representas — clube, ginásio ou nenhuma."
+				},
+				{
+					"title": "Paga a taxa",
+					"body": "A inscrição só fica confirmada com o pagamento da taxa de inscrição da época."
+				},
+				{
+					"title": "Aparece no Open CAL",
+					"body": "Assina o termo de responsabilidade e a declaração de aptidão, e vem competir."
+				}
+			]
+		},
+		"fee": {
+			"eyebrow": "Valores",
+			"title": "Taxa de inscrição",
+			"totalLabel": "Época completa",
+			"orLabel": "ou em duas prestações",
+			"installments": [
+				{
+					"title": "Até ao Open CAL",
+					"body": "Primeira prestação, paga após a inscrição."
+				},
+				{
+					"title": "Até à 1.ª Prova",
+					"body": "Segunda prestação, antes do início da época regular."
+				}
+			],
+			"deadlineLabel": "Prazo de inscrição",
+			"support": "Tens dificuldade em pagar ou precisas de condições especiais? Fala connosco antes do fim do prazo — analisamos cada caso.",
+			"includesTitle": "Inclui",
+			"includes": [
+				"Participação no Open CAL",
+				"Convocatória para 3 a 4 Provas",
+				"Lugar no ranking nacional da tua categoria e divisão",
+				"Acesso ao grupo oficial de comunicação da Liga"
+			]
+		},
+		"eligibility": {
+			"eyebrow": "Elegibilidade",
+			"title": "Quem pode competir",
+			"items": [
+				"Estar devidamente inscrito na Liga",
+				"Estar em dia com os prazos de pagamento",
+				"Ter 14 anos completos até à data do Open CAL",
+				"Estar apto para a prática desportiva competitiva",
+				"Cumprir o Regulamento Interno da CAL"
+			]
+		},
+		"conditions": {
+			"eyebrow": "Condições",
+			"title": "O que deves saber",
+			"items": [
+				{
+					"title": "Admissão aos pares",
+					"body": "Há um limite máximo de atletas por categoria e a admissão é sempre feita aos pares. Quem exceder fica em lista de espera."
+				},
+				{
+					"title": "Desistência",
+					"body": "Há reembolso integral da taxa se desistires até ao dia anterior ao Open CAL. Depois desse momento não há lugar a reembolso."
+				},
+				{
+					"title": "Divisão não aberta",
+					"body": "Se não abrir uma divisão adequada ao teu nível, ou se a tua categoria for cancelada, és integralmente reembolsado."
+				},
+				{
+					"title": "Cancelamento",
+					"body": "Se a época for cancelada antes do Open CAL, o reembolso é integral. Se for depois, é proporcional aos eventos não realizados."
+				}
+			]
+		},
+		"cta": {
+			"title": "Garante o teu lugar",
+			"lead": "As vagas por categoria são limitadas e a lista de espera funciona por ordem de inscrição. Não esperes até à última hora!",
+			"note": "Dúvidas? Fala connosco antes de te inscreveres."
+		}
+	},
+	"rankings": {
+		"meta": {
+			"title": "Ranking Nacional",
+			"description": "O ranking nacional da Calisthenics Alliance, por categoria e divisão."
+		},
+		"hero": {
+			"eyebrow": "Época {season}",
+			"title": "Ranking Nacional",
+			"lead": "O ranking é apurado de forma independente por categoria e divisão, e atualizado até 72 horas depois de cada Prova."
+		},
+		"empty": {
+			"title": "O ranking arranca depois do Open CAL",
+			"body": "Até à primeira Prova, o ranking de cada divisão corresponde à classificação obtida no Open CAL. Volta cá a {date}.",
+			"cta": "Ver o Open CAL"
+		},
+		"how": {
+			"eyebrow": "Como se conta",
+			"title": "O sistema de pontos",
+			"baseTitle": "Pontuação base",
+			"bonusTitle": "Bónus de performance",
+			"bonusBody": "Os atletas que concluem a rotina dentro do timecap são ordenados por tempo total. O bónus vai até 30 pontos e é apurado em cada Prova, por categoria e divisão.",
+			"tiebreakTitle": "Critérios de desempate",
+			"tiebreak": [
+				"Maior número de vitórias",
+				"Resultado do confronto direto",
+				"Menor média dos tempos totais de execução",
+				"Melhor classificação no Open CAL",
+				"Sorteio"
+			]
+		}
+	},
+	"partners": {
+		"meta": {
+			"title": "Parceiros e Contactos",
+			"description": "Os clubes parceiros da Calisthenics Alliance e como falar com a organização."
+		},
+		"hero": {
+			"eyebrow": "Comunidade",
+			"title": "Parceiros",
+			"lead": "A CAL é organizada pela {organizer}, em colaboração com clubes, atletas e entidades da comunidade nacional de calistenia. Estes são os clubes fazem parte da Liga."
+		},
+		"organizerBadge": "Organizador",
+		"visitProfile": "Ver no Instagram",
+		"join": {
+			"title": "Queres ser parceiro?",
+			"body": "Se representas um clube, ginásio ou marca e queres estar ligado à Liga, fala connosco."
+		},
+		"contact": {
+			"eyebrow": "Contactos",
+			"title": "Fala connosco",
+			"lead": "Para inscrições, parcerias ou dúvidas sobre o regulamento.",
+			"emailLabel": "Email",
+			"phoneLabel": "Telefone",
+			"socialLabel": "Redes sociais",
+			"locationLabel": "Locais"
+		}
 	},
 	"notFound": {
-		"title": "Página Não Encontrada"
+		"title": "Página não encontrada",
+		"lead": "Esta página não existe ou mudou de sítio.",
+		"code": "404"
 	}
 }

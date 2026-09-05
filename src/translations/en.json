@@ -1,22 +1,470 @@
 {
 	"metadata": {
 		"title": "Calisthenics Alliance",
-		"description": "Calisthenics Alliance is a community of calisthenics enthusiasts."
+		"template": "%s · Calisthenics Alliance",
+		"description": "The Portuguese endurance calisthenics league. 1v1 Battles, a national ranking, and a final to decide the best athlete of the year."
 	},
-	"home": {
-		"welcome": "Welcome to our website!"
+	"common": {
+		"register": "Register",
+		"registerLong": "Register for the {season} season",
+		"seeOpenCal": "See Open CAL",
+		"downloadRegulation": "Regulation (PDF)",
+		"watchTrailer": "Watch the trailer",
+		"openMenu": "Open menu",
+		"closeMenu": "Close menu",
+		"menu": "Menu",
+		"tba": "To be announced",
+		"scroll": "Scroll",
+		"backHome": "Back to home"
 	},
-	"navbar": {
-		"regulation": "Regulation",
-		"rankings": "Rankings"
+	"nav": {
+		"about": "The League",
+		"openCal": "Open CAL",
+		"register": "Register",
+		"rankings": "Ranking",
+		"partners": "Partners"
 	},
 	"footer": {
-		"copyright": "© {year} Calisthenics Alliance League. All rights reserved.",
+		"tagline": "Strength · Endurance · For All Levels",
+		"navigation": "Navigation",
 		"contact": "Contact",
-		"privacy": "Privacy",
-		"termsOfService": "Terms of Service"
+		"organizedBy": "Organised by",
+		"copyright": "© {year} Calisthenics Alliance. All rights reserved.",
+		"regulationNote": "Internal Regulation v{version}"
+	},
+	"home": {
+		"hero": {
+			"eyebrow": "{season} Season · Portugal",
+			"titleTop": "Calisthenics",
+			"titleBottom": "Alliance",
+			"subtitle": "The Portuguese endurance calisthenics league. 1v1 Battles, a national ranking, and a final to decide the best athlete of the year.",
+			"countdownLabel": "Open CAL starts in",
+			"countdownLive": "It's today. See you at the arena.",
+			"days": "days",
+			"hours": "hours",
+			"minutes": "min",
+			"seconds": "sec"
+		},
+		"nextEvent": {
+			"eyebrow": "Opening event",
+			"title": "Open CAL",
+			"lead": "One routine for every athlete in the League. Your result sets your competitive division and your starting position in the national ranking.",
+			"dateLabel": "Date",
+			"venueLabel": "Venue",
+			"levelLabel": "Level",
+			"level": "For all levels",
+			"cta": "Event details"
+		},
+		"pillars": {
+			"eyebrow": "Why CAL",
+			"title": "Three pillars",
+			"lead": "CAL was created to answer the absence of a regular, continuous and properly regulated competitive structure for Endurance in Portugal.",
+			"items": [
+				{
+					"title": "A continuous structure",
+					"body": "A season with no shortage of events: an opening ceremony, four regular Rounds and a Grand Final."
+				},
+				{
+					"title": "Rigorous judging",
+					"body": "A National Judging Committee applying uniform criteria. Full range of motion, mandatory lockout, zero kipping."
+				},
+				{
+					"title": "A ranking with purpose",
+					"body": "Every Battle counts. Base points plus performance bonuses, in a national ranking per category and division."
+				}
+			]
+		},
+		"season": {
+			"eyebrow": "How the season works",
+			"title": "From the opening to the title",
+			"lead": "Three phases, one season. Athletes accumulate points through the regular season and the best of them fight for the title at the Grand Final.",
+			"phases": [
+				{
+					"tag": "Phase 1",
+					"title": "Open CAL",
+					"body": "The opening event, mandatory for every registered athlete. It determines each athlete's division and starting rank."
+				},
+				{
+					"tag": "Phase 2",
+					"title": "4 Rounds",
+					"body": "The regular season. 1v1 Battles within each category and division. Every athlete is called up for three/four Rounds."
+				},
+				{
+					"tag": "Phase 3",
+					"title": "Grand Final",
+					"body": "A knockout bracket with the top eight of each category and division. It determines the season champion."
+				}
+			]
+		},
+		"divisions": {
+			"eyebrow": "Categories and divisions",
+			"title": "Compete against your level",
+			"lead": "Two categories and up to three divisions. Each division with its own routines, call-ups, ranking and prizes.",
+			"categoriesLabel": "Categories",
+			"categories": ["Women", "Men"],
+			"items": [
+				{
+					"name": "Elite",
+					"body": "Top athletes with extensive competitive experience and advanced command of the technical and physical requirements."
+				},
+				{
+					"name": "Advanced",
+					"body": "Athletes with some competitive experience and solid command of the technical and physical requirements."
+				},
+				{
+					"name": "Promises",
+					"body": "Recreational athletes, or those at the start of a competitive path, focused on progress and experience."
+				}
+			],
+			"note": "Your division is assigned from your Open CAL result and stays fixed for the whole season."
+		},
+		"scoring": {
+			"eyebrow": "Scoring",
+			"title": "Winning matters",
+			"lead": "Every Battle awards points, even in defeat. Winning matters most, but it is your time that sets you apart from athletes on similar results.",
+			"win": "Win",
+			"draw": "Draw",
+			"loss": "Loss",
+			"absent": "No-show",
+			"bonusTitle": "Performance bonus",
+			"bonusBody": "Up to 30 points, distributed by total execution time.",
+			"bonusLegend": "N = eligible athletes · P = position by time/division"
+		},
+		"partners": {
+			"eyebrow": "Partners",
+			"title": "Built with the community",
+			"lead": "CAL is organised together with clubs, athletes and organisations from across the Portuguese calisthenics community."
+		},
+		"cta": {
+			"title": "Ready to compete?",
+			"lead": "Registration for the {season} season is open!\nFourteen and over, for all athletes from all levels.",
+			"secondary": "Read the regulation"
+		}
+	},
+	"about": {
+		"meta": {
+			"title": "The League",
+			"description": "Calisthenics Alliance is an Endurance-focused calisthenics league organised by Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha."
+		},
+		"hero": {
+			"eyebrow": "About CAL",
+			"title": "A league for Endurance",
+			"lead": "Calisthenics Alliance is a project created by Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha, together with other clubs, athletes and organisations from the Portuguese calisthenics community, to organise, regulate and promote competitive calisthenics in Portugal."
+		},
+		"story": {
+			"title": "Why now",
+			"body": "Calisthenics in Portugal keeps growing, but it had no regular, continuous, properly regulated competitive structure for Endurance. CAL rests on three pillars: a uniform and continuous competitive structure, a rigorous and impartial judging system, and a classification model that gives the season purpose, progression and commitment."
+		},
+		"objectives": {
+			"eyebrow": "Objectives",
+			"title": "What we set out to do",
+			"items": [
+				"Grow competitive calisthenics in Portugal",
+				"Create a uniform, continuous competitive structure",
+				"Raise the technical and physical level of athletes through regular competition",
+				"Establish a national ranking for Endurance",
+				"Promote safe practice and athletes' physical integrity",
+				"Build a cohesive, active and lasting community around the discipline"
+			]
+		},
+		"format": {
+			"eyebrow": "Format",
+			"title": "How the season is contested",
+			"battleTitle": "The Battle",
+			"battleBody": "In the regular-season Rounds, two athletes of the same category and division perform the same routine simultaneously. Whoever completes the routine in the least time wins.",
+			"routineTitle": "The routine",
+			"routineBody": "Each routine defines the exercises and their order, the repetitions, any added load, and the timecap. It's published at least 30 days in advance.",
+			"callupTitle": "Call-ups",
+			"callupBody": "Pairings are set manually by the organisation, based on proximity in the ranking. The same two athletes never meet twice in the same regular season.",
+			"finalTitle": "Grand Final",
+			"finalBody": "The top eight of each category and division qualify — or the top four in divisions with fewer than eight athletes. A knockout bracket, with no ranking points."
+		},
+		"judging": {
+			"eyebrow": "Judging",
+			"title": "Always the same criteria",
+			"body": "The National Judging Committee (CNJ) keeps validation criteria uniform across every event. Decisions on the validity of a repetition are immediate, final and binding — there is no video review, and no appeal during execution.",
+			"criteriaTitle": "Every repetition requires",
+			"criteria": [
+				"Full range of motion",
+				"Lockout at the start and end of the movement",
+				"No kipping — no swing or momentum",
+				"Uniform, controlled movement throughout"
+			]
+		},
+		"regulation": {
+			"eyebrow": "Official document",
+			"title": "Internal Regulation",
+			"body": "Everything on this site is a summary. The official document covers registration, eligibility, event protocol, technical rules, judging, scoring, the Grand Final, discipline and data protection.",
+			"meta": "Version {version} · {date} · PT · 31 pages",
+			"onlyPt": "The regulation is available in Portuguese only."
+		}
+	},
+	"openCal": {
+		"meta": {
+			"title": "Open CAL",
+			"description": "The opening event of the Calisthenics Alliance. {date}, Pavilhão Desportivo Rainha D. Leonor, Caldas da Rainha. For all levels."
+		},
+		"hero": {
+			"eyebrow": "Opening event · {season} Season",
+			"title": "Open CAL",
+			"subtitle": "One routine. One packed room. The moment when the season starts.",
+			"dateLabel": "Date",
+			"venueLabel": "Venue",
+			"statusLabel": "Registration",
+			"statusOpen": "Open"
+		},
+		"what": {
+			"eyebrow": "What it is",
+			"title": "The start of the season",
+			"body": "Open CAL is the league's opening event, and taking part is mandatory for every registered athlete. You perform a single competitive routine, different for each category. The result determines the division you'll compete in all season and your starting position in the national ranking.",
+			"highlights": [
+				{
+					"title": "One routine",
+					"body": "A single competitive routine per category, published at least 30 days in advance."
+				},
+				{
+					"title": "One field",
+					"body": "There are no divisions: at Open CAL every athlete in the same category competes together."
+				},
+				{
+					"title": "No points",
+					"body": "Open CAL awards no points. It sets your division and your starting position in the ranking."
+				},
+				{
+					"title": "For all levels",
+					"body": "You don't have to be able to finish the routine. Your division is based on what you do complete."
+				}
+			]
+		},
+		"classification": {
+			"eyebrow": "Classification",
+			"title": "How you're ranked",
+			"lead": "Criteria are applied in this order, until the tie is broken.",
+			"items": [
+				"Most exercises fully completed",
+				"Most valid repetitions performed",
+				"Shortest total execution time",
+				"A draw held by the organisation at the end of the event"
+			],
+			"note": "Athletes are placed in descending order and split evenly across the open divisions, each of which holds an even number of athletes."
+		},
+		"day": {
+			"eyebrow": "On the day",
+			"title": "How it runs",
+			"steps": [
+				{
+					"title": "Arrival",
+					"body": "You're advised to be at the competition area 30 minutes before your routine is scheduled."
+				},
+				{
+					"title": "Warm-up",
+					"body": "Every athlete warms up on their own, outside the competition area, on a space designated by the organisation."
+				},
+				{
+					"title": "Call-up",
+					"body": "After the call you get 5 minutes to prepare, and a maximum 10-minute grace period to present yourself."
+				},
+				{
+					"title": "Execution",
+					"body": "Exercises are performed in the prescribed order. Their execution only has to be unbroken if the routine says so."
+				},
+				{
+					"title": "Timecap",
+					"body": "After the time limit expires, execution stops and the result is recorded, even if the routine was not completed."
+				}
+			]
+		},
+		"special": {
+			"title": "The rule unique to Open CAL",
+			"body": "If you can't start or finish the repetitions of an exercise, you can finish it early and proceed to the next one, informing the judge of your decision. Valid repetitions up to that transition count. The decision is irreversible."
+		},
+		"exercises": {
+			"eyebrow": "Technique",
+			"title": "Exercise list",
+			"lead": "CAL routines may include the following exercises. Every repetition requires full range of motion, lockout, controlled movement and zero kipping.",
+			"items": [
+				"Muscle-Up",
+				"Ring Row",
+				"Pull-Up / Chin-Up",
+				"Dip / Straight Bar Dip",
+				"Push-Up / Low Bar Push-Up",
+				"Squat / Lunge"
+			]
+		},
+		"equipment": {
+			"eyebrow": "Equipment",
+			"title": "What you can bring",
+			"allowedTitle": "Allowed",
+			"allowed": [
+				"Athletic footwear (mandatory)",
+				"Solid or liquid chalk, brought by you",
+				"Your own weight belt (chain or strap)",
+				"Wrist wraps, tape and joint support"
+			],
+			"forbiddenTitle": "Forbidden",
+			"forbidden": [
+				"Resins, glues and other grip aids",
+				"Your own plates and weight vests",
+				"Hook grips, suspension hooks and any strap fixing you to the bar"
+			]
+		},
+		"cta": {
+			"title": "{date}, Caldas da Rainha",
+			"lead": "Places per category are limited.\nAthletes are admitted in pairs."
+		}
+	},
+	"register": {
+		"meta": {
+			"title": "Registration",
+			"description": "Register for the Calisthenics Alliance {season} season. Fourteen and over, all levels welcome."
+		},
+		"hero": {
+			"eyebrow": "{season} Season",
+			"title": "Registration",
+			"lead": "One registration covers the whole season: Open CAL, the Rounds of the regular season and, if you qualify, the Grand Final."
+		},
+		"steps": {
+			"eyebrow": "Step by step",
+			"title": "How to register",
+			"items": [
+				{
+					"title": "Fill in the form",
+					"body": "The athlete form, including the team you represent — club, gym, or none at all."
+				},
+				{
+					"title": "Pay the fee",
+					"body": "Your registration is only confirmed once the season fee has been paid."
+				},
+				{
+					"title": "Show up at Open CAL",
+					"body": "Sign the liability waiver and the declaration of fitness, and come compete."
+				}
+			]
+		},
+		"fee": {
+			"eyebrow": "Pricing",
+			"title": "Registration fee",
+			"totalLabel": "Full season",
+			"orLabel": "or in two instalments",
+			"installments": [
+				{
+					"title": "By Open CAL",
+					"body": "First instalment, paid after you register."
+				},
+				{
+					"title": "By the 1st Round",
+					"body": "Second instalment, paid before the regular season starts."
+				}
+			],
+			"deadlineLabel": "Registration deadline",
+			"support": "Struggling with paying the fee or need special terms? Talk to us before the deadline — we look at every case.",
+			"includesTitle": "Includes",
+			"includes": [
+				"Entry to Open CAL",
+				"Call-up for 3 to 4 Rounds",
+				"Place in the national ranking for your category and division",
+				"Access to the league's official communication group"
+			]
+		},
+		"eligibility": {
+			"eyebrow": "Eligibility",
+			"title": "Who can compete",
+			"items": [
+				"Be properly registered in the league",
+				"Be up to date with the payment deadlines",
+				"Be 14 or older by the date of Open CAL",
+				"Be fit for competitive sport",
+				"Comply with CAL's Internal Regulation"
+			]
+		},
+		"conditions": {
+			"eyebrow": "Conditions",
+			"title": "What you should know",
+			"items": [
+				{
+					"title": "Admitted in pairs",
+					"body": "There's a maximum number of athletes per category and admission always happens in pairs. Anyone beyond it joins a waiting list."
+				},
+				{
+					"title": "Withdrawal",
+					"body": "You're fully refunded if you withdraw up to the day before Open CAL. After that, no refund is due."
+				},
+				{
+					"title": "Division not opened",
+					"body": "If no division suited to your level opens, or your category is cancelled, you're refunded in full."
+				},
+				{
+					"title": "Cancellation",
+					"body": "If the season is cancelled before Open CAL, the refund is full. After it, the refund is proportional to the events not held."
+				}
+			]
+		},
+		"cta": {
+			"title": "Claim your place",
+			"lead": "Places per category are limited, and the waiting list runs in registration order. Don't wait until the last minute!",
+			"note": "Questions? Talk to us before you register"
+		}
+	},
+	"rankings": {
+		"meta": {
+			"title": "National Ranking",
+			"description": "The Calisthenics Alliance national ranking, by category and division."
+		},
+		"hero": {
+			"eyebrow": "{season} Season",
+			"title": "National Ranking",
+			"lead": "The ranking is calculated independently for each category and division, and updated within 72 hours of every Round."
+		},
+		"empty": {
+			"title": "The ranking starts after Open CAL",
+			"body": "Until the first Round, each division's ranking is the classification obtained at Open CAL. Come back on {date}.",
+			"cta": "See Open CAL"
+		},
+		"how": {
+			"eyebrow": "How it's counted",
+			"title": "The points system",
+			"baseTitle": "Base points",
+			"bonusTitle": "Performance bonus",
+			"bonusBody": "Athletes who finish the routine within the timecap are ordered by total time. The bonus goes up to 30 points and is calculated for each Round, per category and division.",
+			"tiebreakTitle": "Tiebreakers",
+			"tiebreak": [
+				"Most wins",
+				"Head-to-head result",
+				"Lowest average total execution time",
+				"Best Open CAL classification",
+				"A draw"
+			]
+		}
+	},
+	"partners": {
+		"meta": {
+			"title": "Partners and Contact",
+			"description": "The partner clubs of Calisthenics Alliance and how to reach the organisation."
+		},
+		"hero": {
+			"eyebrow": "Community",
+			"title": "Partners",
+			"lead": "CAL is organised by {organizer}, together with clubs, athletes and organisations from the Portuguese calisthenics community. These are the clubs building the league with us."
+		},
+		"organizerBadge": "Main organizer",
+		"visitProfile": "View on Instagram",
+		"join": {
+			"title": "Want to partner with us?",
+			"body": "If you represent a club, gym or brand and want to be part of the league, get in touch."
+		},
+		"contact": {
+			"eyebrow": "Contact",
+			"title": "Talk to us",
+			"lead": "For registration, partnerships or questions about the regulation.",
+			"emailLabel": "Email",
+			"phoneLabel": "Phone",
+			"socialLabel": "Social",
+			"locationLabel": "Venues"
+		}
 	},
 	"notFound": {
-		"title": "Page Not Found"
+		"title": "Page not found",
+		"lead": "This page doesn't exist, or it moved.",
+		"code": "404"
 	}
 }

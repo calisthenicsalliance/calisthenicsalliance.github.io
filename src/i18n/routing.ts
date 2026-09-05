@@ -13,6 +13,14 @@ export interface LocaleProps {
 	params: Promise<{ locale: string }>;
 }
 
+// canonical and hreflang for one route; without a path this is the locale home
+export function localeAlternates(locale: string, path = "") {
+	return {
+		canonical: `/${locale}${path}/`,
+		languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}${path}/`])),
+	};
+}
+
 export function localeParams() {
 	return routing.locales.map((locale) => ({ locale }));
 }

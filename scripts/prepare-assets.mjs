@@ -19,7 +19,9 @@ const ICONS_OUT = path.join(process.cwd(), "src", "app");
 /** The crest with alpha, for the dark site; and the opaque one, for favicons. */
 const CREST_TRANSPARENT = path.join(BRAND, "cal-transparent.png");
 const CREST_OPAQUE = path.join(BRAND, "cal.png");
-const PARTNER_WIDTH = 640;
+// logos are normalised to equal area, not equal height: a square mark at the same height as a
+// wide one reads as half the size. they are then padded to a shared canvas so css can size them alike
+const PARTNER_AREA = 230_400;
 /** The crest renders at 36-44px; 320 covers that on a 3x display with headroom. */
 const LOGO_WIDTH = 320;
 
@@ -51,7 +53,7 @@ const smoothstep = (edge0, edge1, value) => {
 	return t * t * (3 - 2 * t);
 };
 
-function key(data, width, height, channels, mode) {
+function key(data, width, height, channels, mode, background) {
 	const out = Buffer.alloc(width * height * 4);
 
 	for (let i = 0, o = 0; i < data.length; i += channels, o += 4) {
@@ -71,16 +73,16 @@ function key(data, width, height, channels, mode) {
 			out[o + 2] = b;
 			out[o + 3] = Math.round(255 * smoothstep(12, 70, l));
 		} else {
-			// Only near-neutral, near-white pixels are removed, so bright
-			// saturated colour (the gold crest) survives untouched.
+			// only near-neutral pixels close to the sampled backdrop are removed, so
+			// saturated colour survives even when it is light
 			const max = Math.max(r, g, b);
 			const min = Math.min(r, g, b);
 			const chroma = max - min;
-			const whiteness = chroma > 24 ? 0 : smoothstep(225, 250, min);
+			const backdrop = chroma > 24 ? 0 : smoothstep(background - 35, background - 5, min);
 			out[o] = r;
 			out[o + 1] = g;
 			out[o + 2] = b;
-			out[o + 3] = Math.round(255 * (1 - whiteness));
+			out[o + 3] = Math.round(255 * (1 - backdrop));
 		}
 	}
 
@@ -89,18 +91,53 @@ function key(data, width, height, channels, mode) {
 
 await mkdir(LOGOS_OUT, { recursive: true });
 
+// pass one: key each logo, trim it, and scale it to a common area
+const marks = [];
 for (const { input, output, mode } of PARTNER_LOGOS) {
 	const source = sharp(path.join(BRAND, input));
 	const { data, info } = await source.raw().toBuffer({ resolveWithObject: true });
-	const keyed = key(data, info.width, info.height, info.channels, mode);
+	// the backdrop is whatever fills the corner, which is not always pure white
+	const background = Math.min(data[0], data[1], data[2]);
+	const keyed = key(data, info.width, info.height, info.channels, mode, background);
 
-	await sharp(keyed, { raw: { width: info.width, height: info.height, channels: 4 } })
+	const trimmed = await sharp(keyed, { raw: { width: info.width, height: info.height, channels: 4 } })
 		.png()
 		.trim({ threshold: 1 })
-		.resize({ width: PARTNER_WIDTH, withoutEnlargement: true })
-		.toFile(path.join(LOGOS_OUT, output));
+		.toBuffer({ resolveWithObject: true });
 
-	console.log(`  brand/${input} -> public/logos/${output}  (${mode})`);
+	const scale = Math.sqrt(PARTNER_AREA / (trimmed.info.width * trimmed.info.height));
+	marks.push({
+		output,
+		mode,
+		input,
+		buffer: trimmed.data,
+		width: Math.round(trimmed.info.width * scale),
+		height: Math.round(trimmed.info.height * scale),
+	});
+}
+
+// pass two: pad every mark onto the same canvas so css can size them identically
+const canvas = {
+	width: Math.max(...marks.map((m) => m.width)),
+	height: Math.max(...marks.map((m) => m.height)),
+};
+
+for (const mark of marks) {
+	const left = Math.floor((canvas.width - mark.width) / 2);
+	const top = Math.floor((canvas.height - mark.height) / 2);
+
+	await sharp(mark.buffer)
+		.resize({ width: mark.width, height: mark.height, fit: "fill" })
+		.extend({
+			left,
+			right: canvas.width - mark.width - left,
+			top,
+			bottom: canvas.height - mark.height - top,
+			background: { r: 0, g: 0, b: 0, alpha: 0 },
+		})
+		.toFile(path.join(LOGOS_OUT, mark.output));
+
+	console.log(`  brand/${mark.input} -> public/logos/${mark.output}  (${mark.mode})`);
 }
 
 await sharp(CREST_TRANSPARENT)

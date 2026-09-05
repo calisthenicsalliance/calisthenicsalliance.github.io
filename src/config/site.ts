@@ -1,7 +1,7 @@
 export const site = {
 	name: "Calisthenics Alliance",
 	shortName: "CAL",
-	url: "https://calisthenicsalliance.github.io",
+	url: "https://calisthenicsalliance.com",
 	organizer: {
 		name: "Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha",
 		shortName: "B.W.C.R.",
@@ -18,11 +18,11 @@ export const site = {
 			{ name: "Iúri Lage", phone: "+351 911 913 799", tel: "+351911913799" },
 		],
 	},
-	registrationUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+	registrationUrl: "https://forms.gle/bsuBe6Xymf7QoNzFA",
 	regulation: {
-		pt: "/regulations/pt.pdf",
+		pt: "/regulations/cal-regulamento.pdf",
 		version: "1.0",
-		publishedAt: "2026-08-23",
+		publishedAt: "2026-09-08",
 	},
 } as const;
 

@@ -20,14 +20,14 @@ This repository is the league's website: a statically exported, bilingual (PT/EN
 
 # Stack
 
-| Concern   | Choice                                                     |
-| --------- | ---------------------------------------------------------- |
-| Framework | Next.js 16 App Router, `output: "export"` (fully static)   |
-| Styling   | Tailwind CSS v4, dark-only palette taken from the crest    |
-| i18n      | `next-intl`, Portuguese default at `/pt`, English at `/en` |
-| UI        | Base UI primitives + a small local component set           |
-| Motion    | `motion`, globally deferring to `prefers-reduced-motion`   |
-| Hosting   | GitHub Pages, built and deployed by GitHub Actions         |
+| Concern   | Choice                                                      |
+| --------- | ----------------------------------------------------------- |
+| Framework | Next.js 16 App Router, `output: "export"` (fully static)    |
+| Styling   | Tailwind CSS v4, dark-only palette taken from the crest     |
+| i18n      | `next-intl`, Portuguese default at `/pt`, English at `/en`  |
+| UI        | Base UI primitives + a small local component set            |
+| Motion    | `motion`, globally deferring to `prefers-reduced-motion`    |
+| Hosting   | Cloudflare Workers, via the `opennextjs-cloudflare` adapter |
 
 <br>
 
@@ -44,7 +44,7 @@ Other scripts:
 
 ```sh
 npm run build       # static export into ./out
-npm run start       # serve the built ./out locally
+npm run start       # run the production server locally
 npm run typecheck   # tsc --noEmit
 npm run lint        # eslint
 npm run format      # prettier
@@ -63,7 +63,7 @@ Content is deliberately kept out of the components. Almost every change is a dat
 | Event dates, venues, divisions, scoring, exercises, fees | `src/content/season.ts`               |
 | Partner clubs                                            | `src/content/partners.ts`             |
 | **All** user-facing text, both languages                 | `src/translations/pt.json`, `en.json` |
-| The regulation PDF                                       | `public/regulations/pt.pdf`           |
+| The regulation PDF                                       | `public/regulations/`                 |
 | Original logo files (not deployed)                       | `brand/`                              |
 
 Both translation files must always hold the same set of keys. Lists (`items`, `steps`, …) are plain JSON arrays read with `t.raw()`.
@@ -81,7 +81,7 @@ public/
   logos/      cal.png, bar-wings.png, bg-bars.png, lion-shield.png
   images/     open-cal-poster.jpg
   videos/     team.mp4 (hero loop), open-cal-trailer.mp4
-  regulations/pt.pdf
+  regulations/cal-regulamento.pdf
 
 brand/                     originals that need processing before they can be served
   cal.png                  the crest on its black, full resolution
@@ -103,9 +103,17 @@ Partner logos arrive with mismatched backgrounds (dark art on white, white type 
 
 # Deployment
 
-Every push to `main` triggers `.github/workflows/deploy.yml`, which typechecks, lints, builds the static export and publishes `./out` to GitHub Pages.
+Cloudflare builds and runs the site, using `npx opennextjs-cloudflare build` to wrap the
+Next.js server for Workers. That adapter requires `output: "standalone"` in
+`next.config.ts` — switching back to `"export"` breaks the build, since the adapter looks
+for `.next/standalone`.
 
-The site is served from the root of `calisthenicsalliance.github.io`, so **no `basePath` is configured**. If the site ever moves to a project repository (served from `/<repo>/`), set `basePath` and `assetPrefix` in `next.config.ts`.
+Separately, `.github/workflows/ci.yml` typechecks, lints and builds on every push and pull
+request. It does not deploy.
+
+The site is served from the root of `https://calisthenicsalliance.com/`, so **no `basePath` is
+configured**. If it ever moves under a path prefix, set `basePath` and `assetPrefix` in
+`next.config.ts`.
 
 <br>
 
