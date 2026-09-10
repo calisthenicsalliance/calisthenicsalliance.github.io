@@ -20,14 +20,14 @@ This repository is the league's website: a statically exported, bilingual (PT/EN
 
 # Stack
 
-| Concern   | Choice                                                      |
-| --------- | ----------------------------------------------------------- |
-| Framework | Next.js 16 App Router, `output: "export"` (fully static)    |
-| Styling   | Tailwind CSS v4, dark-only palette taken from the crest     |
-| i18n      | `next-intl`, Portuguese default at `/pt`, English at `/en`  |
-| UI        | Base UI primitives + a small local component set            |
-| Motion    | `motion`, globally deferring to `prefers-reduced-motion`    |
-| Hosting   | Cloudflare Workers, via the `opennextjs-cloudflare` adapter |
+| Concern   | Choice                                                     |
+| --------- | ---------------------------------------------------------- |
+| Framework | Next.js 16 App Router, `output: "export"` (fully static)   |
+| Styling   | Tailwind CSS v4, dark-only palette taken from the crest    |
+| i18n      | `next-intl`, Portuguese default at `/pt`, English at `/en` |
+| UI        | Base UI primitives + a small local component set           |
+| Motion    | `motion`, globally deferring to `prefers-reduced-motion`   |
+| Hosting   | Cloudflare, serving the static export from `out/`          |
 
 <br>
 
@@ -103,10 +103,18 @@ Partner logos arrive with mismatched backgrounds (dark art on white, white type 
 
 # Deployment
 
-Cloudflare builds and runs the site, using `npx opennextjs-cloudflare build` to wrap the
-Next.js server for Workers. That adapter requires `output: "standalone"` in
-`next.config.ts` — switching back to `"export"` breaks the build, since the adapter looks
-for `.next/standalone`.
+Cloudflare builds and publishes the site. Its project settings must be:
+
+```
+Build command:           npm run build
+Build output directory:  out
+Framework preset:        None
+```
+
+The Worker is assets-only — `wrangler.toml` declares no `main`, so no code runs and no CPU
+is consumed. `output: "export"` produces the plain files it serves. Do **not** use
+`opennextjs-cloudflare`: that adapter wraps the Next.js server for Workers, so every request
+re-renders a page that never changes, and RSC prefetches exceed the Worker CPU limit.
 
 Separately, `.github/workflows/ci.yml` typechecks, lints and builds on every push and pull
 request. It does not deploy.

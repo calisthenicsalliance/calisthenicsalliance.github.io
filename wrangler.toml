@@ -1,0 +1,7 @@
+name = "calisthenics-alliance"
+compatibility_date = "2026-09-10"
+
+# no main entry: an assets-only Worker runs no code, so it consumes no CPU
+[assets]
+directory = "./out"
+not_found_handling = "404-page"

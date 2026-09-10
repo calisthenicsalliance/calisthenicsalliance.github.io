@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 // served from the domain root, so no basePath is needed
 const nextConfig: NextConfig = {
 	reactCompiler: true,
-	output: "standalone",
+	output: "export",
 	trailingSlash: true,
 	images: { unoptimized: true },
 };
