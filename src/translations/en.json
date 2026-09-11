@@ -366,6 +366,14 @@
 				"Access to the league's official communication group"
 			]
 		},
+		"payment": {
+			"eyebrow": "Payment",
+			"title": "How to pay",
+			"ibanLabel": "Bank transfer",
+			"ibanNote": "Preferred",
+			"mbwayLabel": "MB WAY",
+			"proof": "Always send the proof of payment to <link>{tel}</link>."
+		},
 		"eligibility": {
 			"eyebrow": "Eligibility",
 			"title": "Who can compete",

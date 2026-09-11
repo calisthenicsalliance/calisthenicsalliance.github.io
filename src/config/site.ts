@@ -18,6 +18,12 @@ export const site = {
 			{ name: "Iúri Lage", phone: "+351 911 913 799", tel: "+351911913799" },
 		],
 	},
+	payment: {
+		iban: "PT50 0035 0326 00699780930 69",
+		mbway: "914 409 368",
+		// where the proof of payment is sent
+		proofTel: "+351914409368",
+	},
 	registrationUrl: "https://forms.gle/bsuBe6Xymf7QoNzFA",
 	regulation: {
 		pt: "/regulations/cal-regulamento.pdf",

@@ -109,6 +109,46 @@ export default async function RegisterPage({ params }: LocaleProps) {
 							<p className="mt-6 text-xs leading-relaxed text-muted-foreground/70">{t("fee.support")}</p>
 						</Card>
 
+						<div className="flex flex-col gap-5">
+							<Eyebrow>{t("payment.eyebrow")}</Eyebrow>
+							<h3 className="text-2xl">{t("payment.title")}</h3>
+
+							<div className="grid gap-4 sm:grid-cols-[1.7fr_1fr]">
+								<div className="flex flex-col gap-2 rounded-md border border-brand/50 bg-card p-6">
+									<div className="flex items-center justify-between gap-3">
+										<span className="text-[0.65rem] tracking-[0.25em] text-brand uppercase">
+											{t("payment.ibanLabel")}
+										</span>
+										<span className="shrink-0 rounded-sm bg-brand px-2 py-0.5 text-[0.6rem] font-bold tracking-[0.15em] text-white uppercase">
+											{t("payment.ibanNote")}
+										</span>
+									</div>
+									<span className="font-mono text-sm whitespace-nowrap">{site.payment.iban}</span>
+								</div>
+								<div className="flex flex-col gap-2 rounded-md border border-white/10 bg-card p-6">
+									<span className="text-[0.65rem] tracking-[0.25em] text-muted-foreground uppercase">
+										{t("payment.mbwayLabel")}
+									</span>
+									<span className="font-mono text-sm">{site.payment.mbway}</span>
+								</div>
+							</div>
+
+							<p className="text-xs leading-relaxed text-muted-foreground/70">
+								{t.rich("payment.proof", {
+									tel: site.payment.mbway,
+									link: (chunks) => (
+										<a
+											href={`https://wa.me/${site.payment.proofTel.replace("+", "")}`}
+											target="_blank"
+											rel="noreferrer noopener"
+											className="font-medium text-brand underline-offset-4 transition-colors hover:text-brand-bright hover:underline">
+											{chunks}
+										</a>
+									),
+								})}
+							</p>
+						</div>
+
 						<div className="flex flex-wrap items-baseline gap-3 border-t border-white/10 pt-6">
 							<span className="text-[0.65rem] tracking-[0.25em] text-muted-foreground uppercase">
 								{t("fee.deadlineLabel")}

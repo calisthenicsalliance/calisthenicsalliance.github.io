@@ -366,6 +366,14 @@
 				"Acesso ao grupo oficial de comunicação da Liga"
 			]
 		},
+		"payment": {
+			"eyebrow": "Pagamento",
+			"title": "Como pagar",
+			"ibanLabel": "Transferência",
+			"ibanNote": "Preferencial",
+			"mbwayLabel": "MB WAY",
+			"proof": "Envia sempre o comprovativo de pagamento para <link>{tel}</link>."
+		},
 		"eligibility": {
 			"eyebrow": "Elegibilidade",
 			"title": "Quem pode competir",
