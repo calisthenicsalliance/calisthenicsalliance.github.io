@@ -6,4 +6,5 @@ export { SeasonTimeline } from "./season-timeline";
 export { Divisions } from "./divisions";
 export { Scoring } from "./scoring";
 export { PartnersStrip } from "./partners-strip";
+export { Routines } from "./routines";
 export { CtaBand } from "./cta-band";

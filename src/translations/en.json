@@ -18,11 +18,20 @@
 		"backHome": "Back to home"
 	},
 	"nav": {
-		"about": "The League",
+		"league": "The League",
+		"events": "Events",
+		"about": "About",
 		"openCal": "Open CAL",
 		"register": "Register",
 		"rankings": "Ranking",
-		"partners": "Partners"
+		"partners": "Partners",
+		"faq": "FAQ",
+		"hints": {
+			"about": "Format, judging and regulation",
+			"partners": "Partner clubs and contacts",
+			"openCal": "{date} · {city}"
+		},
+		"eventsSoon": "Rounds and Grand Final · dates to be announced"
 	},
 	"footer": {
 		"tagline": "Strength · Endurance · For All Levels",
@@ -53,6 +62,8 @@
 			"venueLabel": "Venue",
 			"levelLabel": "Level",
 			"level": "For all levels",
+			"routinesLabel": "Routines",
+			"routinesValue": "Published",
 			"cta": "Event details"
 		},
 		"pillars": {
@@ -141,6 +152,16 @@
 			"secondary": "Read the regulation"
 		}
 	},
+	"news": {
+		"label": "News",
+		"cta": "See",
+		"close": "Close notice",
+		"items": {
+			"openCalRoutines": {
+				"title": "Open CAL routines published"
+			}
+		}
+	},
 	"about": {
 		"meta": {
 			"title": "The League",
@@ -212,6 +233,23 @@
 			"venueLabel": "Venue",
 			"statusLabel": "Registration",
 			"statusOpen": "Open"
+		},
+		"routines": {
+			"eyebrow": "Official routines",
+			"title": "The routines",
+			"lead": "Perform the exercises in the order shown. They do not have to be done unbroken, and you do not have to finish the routine: you can move on to the next exercise at any time by telling the judges, but you cannot go back.",
+			"publishedLabel": "Published on",
+			"cta": "See the routines",
+			"categories": {
+				"female": "Women",
+				"male": "Men"
+			},
+			"gear": {
+				"vest": "{kg} kg vest"
+			},
+			"unbroken": "Unbroken",
+			"timecap": "Timecap",
+			"minutes": "{count} min"
 		},
 		"what": {
 			"eyebrow": "What it is",
@@ -288,7 +326,9 @@
 				"Pull-Up / Chin-Up",
 				"Dip / Straight Bar Dip",
 				"Push-Up / Low Bar Push-Up",
-				"Squat / Lunge"
+				"Squat",
+				"Lunge",
+				"Bar-Hang"
 			]
 		},
 		"equipment": {
@@ -369,10 +409,12 @@
 		"payment": {
 			"eyebrow": "Payment",
 			"title": "How to pay",
+			"preferred": "Preferred",
+			"cashLabel": "Cash",
+			"cashNote": "In person, to a member of the organisation",
 			"ibanLabel": "Bank transfer",
-			"ibanNote": "Preferred",
 			"mbwayLabel": "MB WAY",
-			"proof": "Always send the proof of payment to <link>{tel}</link>."
+			"proof": "For bank transfer or MB WAY, always send the proof of payment to <link>{tel}</link>."
 		},
 		"eligibility": {
 			"eyebrow": "Eligibility",
@@ -468,6 +510,145 @@
 			"phoneLabel": "Phone",
 			"socialLabel": "Social",
 			"locationLabel": "Venues"
+		}
+	},
+	"faq": {
+		"meta": {
+			"title": "FAQ",
+			"description": "Quick answers to the most common questions about the Calisthenics Alliance: registration, Open CAL, Rounds, Grand Final and prizes."
+		},
+		"hero": {
+			"eyebrow": "Questions",
+			"title": "Frequently asked questions",
+			"lead": "Quick answers to the most common questions about the league. In case of misalignment, the Internal Regulation prevails."
+		},
+		"groups": [
+			{
+				"title": "The League",
+				"items": [
+					{
+						"question": "What is the Calisthenics Alliance?",
+						"answer": "It is the national calisthenics league focused on Endurance, organised by Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha. The season has an opening event, four regular Rounds and a Grand Final."
+					},
+					{
+						"question": "Do I need competition experience?",
+						"answer": "No. The league is designed for athletes of all levels: the Promises division exists for recreational athletes and those starting out, and at the Open CAL you do not have to finish the routine to be given a division."
+					},
+					{
+						"question": "Where are the events held?",
+						"answer": "Every event of the {season} season takes place at the <map>Pavilhão Desportivo Rainha D. Leonor</map>, in Caldas da Rainha."
+					},
+					{
+						"question": "When are the Rounds and the Grand Final?",
+						"answer": "The dates have not been announced yet. They are published at least 45 days before the first Round, which takes place at least 60 days after the Open CAL."
+					}
+				]
+			},
+			{
+				"title": "Registration",
+				"items": [
+					{
+						"question": "What are the requirements to take part?",
+						"answer": "Being 14 by the date of the Open CAL and fit for competitive sport, which each athlete is responsible for making sure of before every event. At the Open CAL you sign the liability waiver and the fitness declaration; if you are under 18, your legal guardians sign them for you."
+					},
+					{
+						"question": "How much does it cost?",
+						"answer": "{total} for the full season, paid at once or in two instalments of {installment}. If you need special conditions, talk to us before the deadline."
+					},
+					{
+						"question": "How can I pay?",
+						"answer": "In cash, handed to a member of the organisation (the preferred method), by bank transfer or by MB WAY. The first payment must be made by the Open CAL. The details are on the <register>Register</register> page."
+					},
+					{
+						"question": "When is the registration deadline?",
+						"answer": "Until {deadline}. Places are limited and athletes are admitted in pairs. Anyone over the limit goes on a waiting list, in order of registration."
+					},
+					{
+						"question": "What if I have to withdraw?",
+						"answer": "If you withdraw by the day before the Open CAL, you get the registration fee back in full. After that there is no refund."
+					},
+					{
+						"question": "Do I have to represent a club?",
+						"answer": "No. On the athlete form you state the team you represent — a club, a gym or none. The organisation tries to avoid Battles between athletes from the same team."
+					}
+				]
+			},
+			{
+				"title": "Open CAL",
+				"items": [
+					{
+						"question": "Is the Open CAL mandatory?",
+						"answer": "Yes, for every registered athlete, except in exceptional cases justified to and accepted by the organisation. The Open CAL is where your division is decided."
+					},
+					{
+						"question": "What if I cannot finish the routine?",
+						"answer": "That is fine. You can end an exercise early and move on to the next one, and your division is assigned based on what you manage to complete."
+					},
+					{
+						"question": "When will I know the routine?",
+						"answer": "At least 30 days before the event, through the official CAL communication channels."
+					},
+					{
+						"question": "Can I choose my division?",
+						"answer": "No. Your division is assigned from your Open CAL ranking and stays the same until the end of the competitive season."
+					}
+				]
+			},
+			{
+				"title": "Regular season",
+				"items": [
+					{
+						"question": "How many Rounds will I compete in?",
+						"answer": "At least three of the four Rounds of the regular season (according to the number of registered athletes), with one Battle in each."
+					},
+					{
+						"question": "How is my opponent chosen?",
+						"answer": "Pairings are set by the organisation, based on how close athletes are in the ranking. You never face the same athlete twice in the same regular season."
+					},
+					{
+						"question": "What happens if I miss a Round?",
+						"answer": "An absence scores zero points. If it is justified and accepted by the organisation, the Battle is rescheduled whenever possible."
+					},
+					{
+						"question": "What equipment can I bring?",
+						"answer": "Sports shoes are mandatory. You can use chalk, your own dip belt, wrist wraps and tape, but weights and weighted vests are always provided by the organisation. The full list is on the <openCal>Open CAL</openCal> page."
+					},
+					{
+						"question": "Can I challenge a judge's decision?",
+						"answer": "No. Decisions on whether a rep counts are immediate and final, and there is no video review. Decisions by the organisation that affect you can be challenged in writing within 72 hours of being notified."
+					}
+				]
+			},
+			{
+				"title": "Grand Final and prizes",
+				"items": [
+					{
+						"question": "Who qualifies for the Grand Final?",
+						"answer": "The top eight in the ranking of each category and division at the end of the regular season, or the top four in divisions with fewer than eight athletes."
+					},
+					{
+						"question": "Are there prizes?",
+						"answer": "Yes, for the top three of the Grand Final and the top three of the regular-season ranking, in every category and division. The nature and the value of the prizes will be announced before the Grand Final."
+					}
+				]
+			},
+			{
+				"title": "Other questions",
+				"items": [
+					{
+						"question": "Will photos and videos of me be published?",
+						"answer": "Only with your consent, given in a separate document that you can withdraw at any time. Refusing does not stop you from competing. Every photo taken at the events is made available to the athletes. Rankings and results are always public."
+					},
+					{
+						"question": "Where can I follow the news?",
+						"answer": "On this website, on our Instagram page at <instagramLink>{instagram}</instagramLink> and, once you have registered, in CAL's group chat, where all communication with athletes happens."
+					}
+				]
+			}
+		],
+		"more": {
+			"title": "Didn't find your answer?",
+			"body": "Talk to us. The Internal Regulation has every detail and prevails over this summary."
 		}
 	},
 	"notFound": {

@@ -6,6 +6,9 @@
 out/
 next-env.d.ts
 
+# Wrangler
+.wrangler/
+
 # TypeScript
 *.tsbuildinfo
 

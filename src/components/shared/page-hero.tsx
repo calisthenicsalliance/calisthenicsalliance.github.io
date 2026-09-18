@@ -1,3 +1,4 @@
+import { currentAnnouncement } from "@/content/news";
 import { cn } from "@/lib/utils";
 import { Container } from "./container";
 import { Eyebrow } from "./section";
@@ -13,7 +14,13 @@ interface PageHeroProps {
 // the banner every interior page opens with
 export function PageHero({ eyebrow, title, lead, children, className }: PageHeroProps) {
 	return (
-		<section className={cn("relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20", className)}>
+		<section
+			className={cn(
+				"relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20",
+				// the announcement bar makes the fixed header 40px taller
+				currentAnnouncement && "pt-46 sm:pt-54",
+				className,
+			)}>
 			<div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_15%_0%,var(--tw-gradient-from),transparent_65%)] from-brand/20" />
 			<div className="absolute inset-0 bg-hatch opacity-40" />
 

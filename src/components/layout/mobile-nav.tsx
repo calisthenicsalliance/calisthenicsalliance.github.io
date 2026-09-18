@@ -5,14 +5,24 @@ import { Dialog } from "@base-ui/react/dialog";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { navigation, site } from "@/config/site";
+import { navigation, navigationLinks, site, type NavGroup, type NavLink } from "@/config/site";
 import { season } from "@/content/season";
 import { buttonVariants } from "@/components/ui/button";
 import { LocaleSwitcher } from "./locale-switcher";
 
+// consecutive top-level links share one block; each group gets its own
+const blocks = navigation.reduce<(NavGroup | NavLink[])[]>((acc, item) => {
+	const last = acc[acc.length - 1];
+	if ("links" in item) acc.push(item);
+	else if (Array.isArray(last)) last.push(item);
+	else acc.push([item]);
+	return acc;
+}, []);
+
 export function MobileNav() {
 	const [open, setOpen] = useState(false);
 	const t = useTranslations();
+	const close = () => setOpen(false);
 
 	return (
 		<Dialog.Root open={open} onOpenChange={setOpen}>
@@ -36,19 +46,32 @@ export function MobileNav() {
 						</Dialog.Close>
 					</div>
 
-					<nav className="flex flex-1 flex-col justify-center gap-2 px-5 sm:px-8">
-						{navigation.map((item, index) => (
-							<Link
-								key={item.href}
-								href={item.href}
-								onClick={() => setOpen(false)}
-								className="border-b border-white/5 py-4 font-display text-2xl uppercase transition-colors hover:text-brand sm:text-3xl">
-								<span className="mr-4 align-super text-xs text-brand/50">
-									{String(index + 1).padStart(2, "0")}
-								</span>
-								{t(`nav.${item.key}`)}
-							</Link>
-						))}
+					<nav className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 sm:px-8">
+						<div className="my-auto flex flex-col gap-8 py-6">
+							{blocks.map((block) =>
+								Array.isArray(block) ? (
+									<div key={block[0].href} className="flex flex-col border-l border-transparent pl-4">
+										{block.map((link) => (
+											<MobileLink key={link.href} href={link.href} onNavigate={close}>
+												{t(`nav.${link.key}`)}
+											</MobileLink>
+										))}
+									</div>
+								) : (
+									<div key={block.key} className="flex flex-col">
+										<p className="mb-2 eyebrow">{t(`nav.${block.key}`)}</p>
+										{/* the line marks what belongs to the heading; top-level links share the indent without it */}
+										<div className="flex flex-col border-l border-brand/30 pl-4">
+											{block.links.map((link) => (
+												<MobileLink key={link.href} href={link.href} onNavigate={close}>
+													{t(`nav.${link.key}`)}
+												</MobileLink>
+											))}
+										</div>
+									</div>
+								),
+							)}
+						</div>
 					</nav>
 
 					<div className="px-5 pb-10 sm:px-8">
@@ -63,5 +86,29 @@ export function MobileNav() {
 				</Dialog.Popup>
 			</Dialog.Portal>
 		</Dialog.Root>
+	);
+}
+
+function MobileLink({
+	href,
+	onNavigate,
+	children,
+}: {
+	href: string;
+	onNavigate: () => void;
+	children: React.ReactNode;
+}) {
+	const index = navigationLinks.findIndex((link) => link.href === href);
+
+	return (
+		<Link
+			href={href}
+			onClick={onNavigate}
+			className="border-b border-white/5 py-4 font-display text-2xl uppercase transition-colors hover:text-brand sm:text-3xl">
+			<span className="inline-block w-9 align-super text-xs text-brand/50 tabular-nums">
+				{String(index + 1).padStart(2, "0")}
+			</span>
+			{children}
+		</Link>
 	);
 }

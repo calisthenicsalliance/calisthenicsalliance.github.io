@@ -40,6 +40,9 @@ const buttonVariants = cva(
 	},
 );
 
+// for 2xl buttons whose label is too long for a phone: the text scales with the viewport instead of overflowing
+const fluidButton = "px-5 text-[clamp(0.6875rem,3.5vw,0.9375rem)] sm:px-9 sm:text-[0.9375rem]";
+
 // for actions; anything that navigates is a link styled with buttonVariants
 function Button({
 	className,
@@ -58,4 +61,4 @@ function Button({
 	);
 }
 
-export { Button, buttonVariants };
+export { Button, buttonVariants, fluidButton };

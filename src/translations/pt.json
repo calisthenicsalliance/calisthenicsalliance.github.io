@@ -18,11 +18,20 @@
 		"backHome": "Voltar ao início"
 	},
 	"nav": {
-		"about": "A Liga",
+		"league": "A Liga",
+		"events": "Eventos",
+		"about": "Sobre a Liga",
 		"openCal": "Open CAL",
 		"register": "Inscrições",
 		"rankings": "Ranking",
-		"partners": "Parceiros"
+		"partners": "Parceiros",
+		"faq": "FAQ",
+		"hints": {
+			"about": "Formato, arbitragem e regulamento",
+			"partners": "Clubes parceiros e contactos",
+			"openCal": "{date} · {city}"
+		},
+		"eventsSoon": "Provas e Grand Final · datas a anunciar"
 	},
 	"footer": {
 		"tagline": "Strength · Endurance · For All Levels",
@@ -53,6 +62,8 @@
 			"venueLabel": "Local",
 			"levelLabel": "Nível",
 			"level": "Para todos os níveis",
+			"routinesLabel": "Rotinas",
+			"routinesValue": "Publicadas",
 			"cta": "Detalhes do evento"
 		},
 		"pillars": {
@@ -141,6 +152,16 @@
 			"secondary": "Ler o regulamento"
 		}
 	},
+	"news": {
+		"label": "Novidade",
+		"cta": "Ver",
+		"close": "Fechar aviso",
+		"items": {
+			"openCalRoutines": {
+				"title": "Rotinas do Open CAL publicadas"
+			}
+		}
+	},
 	"about": {
 		"meta": {
 			"title": "A Liga",
@@ -212,6 +233,23 @@
 			"venueLabel": "Local",
 			"statusLabel": "Inscrições",
 			"statusOpen": "Abertas"
+		},
+		"routines": {
+			"eyebrow": "Rotinas oficiais",
+			"title": "As rotinas",
+			"lead": "Executa os exercícios pela ordem indicada. Não é obrigatório fazê-los unbroken, nem concluir a rotina: podes avançar para o exercício seguinte a qualquer momento, avisando o júri, mas não podes voltar atrás.",
+			"publishedLabel": "Publicadas a",
+			"cta": "Ver as rotinas",
+			"categories": {
+				"female": "Feminino",
+				"male": "Masculino"
+			},
+			"gear": {
+				"vest": "Colete de {kg} kg"
+			},
+			"unbroken": "Unbroken",
+			"timecap": "Timecap",
+			"minutes": "{count} min"
 		},
 		"what": {
 			"eyebrow": "O que é",
@@ -288,7 +326,9 @@
 				"Pull-Up / Chin-Up",
 				"Dip / Straight Bar Dip",
 				"Push-Up / Low Bar Push-Up",
-				"Squat / Lunge"
+				"Squat",
+				"Lunge",
+				"Bar-Hang"
 			]
 		},
 		"equipment": {
@@ -369,10 +409,12 @@
 		"payment": {
 			"eyebrow": "Pagamento",
 			"title": "Como pagar",
-			"ibanLabel": "Transferência",
-			"ibanNote": "Preferencial",
+			"preferred": "Preferencial",
+			"cashLabel": "Numerário",
+			"cashNote": "Em mão, a um membro da organização",
+			"ibanLabel": "Transferência bancária",
 			"mbwayLabel": "MB WAY",
-			"proof": "Envia sempre o comprovativo de pagamento para <link>{tel}</link>."
+			"proof": "Por transferência ou MB WAY, envia sempre o comprovativo de pagamento para <link>{tel}</link>."
 		},
 		"eligibility": {
 			"eyebrow": "Elegibilidade",
@@ -468,6 +510,145 @@
 			"phoneLabel": "Telefone",
 			"socialLabel": "Redes sociais",
 			"locationLabel": "Locais"
+		}
+	},
+	"faq": {
+		"meta": {
+			"title": "Perguntas frequentes",
+			"description": "Respostas rápidas às dúvidas mais comuns sobre a Calisthenics Alliance: inscrições, Open CAL, Provas, Grand Final e prémios."
+		},
+		"hero": {
+			"eyebrow": "Dúvidas",
+			"title": "Perguntas frequentes",
+			"lead": "Respostas rápidas às dúvidas mais comuns sobre a Liga. Em caso de divergência, prevalece o Regulamento Interno."
+		},
+		"groups": [
+			{
+				"title": "A Liga",
+				"items": [
+					{
+						"question": "O que é a Calisthenics Alliance?",
+						"answer": "É a liga nacional de calistenia focada em Endurance, organizada pela Associação B.W.C.R. — Clube de Calistenia das Caldas da Rainha. A época tem um evento de abertura, quatro Provas regulares e uma Grand Final."
+					},
+					{
+						"question": "Preciso de experiência de competição?",
+						"answer": "Não. A Liga está desenhada para atletas de todos os níveis: a divisão Promises existe para atletas recreativos ou em início de percurso, e no Open CAL não tens de concluir a rotina para te ser atribuída uma divisão."
+					},
+					{
+						"question": "Onde se realizam os eventos?",
+						"answer": "Todos os eventos da época {season} decorrem no <map>Pavilhão Desportivo Rainha D. Leonor</map>, em Caldas da Rainha."
+					},
+					{
+						"question": "Quando são as Provas e a Grand Final?",
+						"answer": "As datas ainda não foram anunciadas. São divulgadas pelo menos 45 dias antes da primeira Prova, que acontece no mínimo 60 dias depois do Open CAL."
+					}
+				]
+			},
+			{
+				"title": "Inscrições",
+				"items": [
+					{
+						"question": "Quais são os requisitos para participar?",
+						"answer": "Ter 14 anos completos até à data do Open CAL e estar apto para a prática desportiva competitiva, o que cabe a cada atleta garantir antes de cada evento. No Open CAL assinas o termo de responsabilidade e a declaração de aptidão; se fores menor de idade, são assinados pelos teus representantes legais."
+					},
+					{
+						"question": "Quanto custa a inscrição?",
+						"answer": "{total} pela época completa, que podes pagar de uma vez ou em duas prestações de {installment}. Se precisares de condições especiais, fala connosco antes do fim do prazo."
+					},
+					{
+						"question": "Como posso pagar?",
+						"answer": "Em numerário, entregue a um membro da organização (a forma preferencial), por transferência bancária ou por MB WAY. O primeiro pagamento tem de ser feito até ao Open CAL. Os dados estão na página de <register>Inscrições</register>."
+					},
+					{
+						"question": "Até quando me posso inscrever?",
+						"answer": "Até {deadline}. As vagas são limitadas e a admissão é feita aos pares. Quem exceder o limite fica em lista de espera, por ordem de inscrição."
+					},
+					{
+						"question": "E se tiver de desistir?",
+						"answer": "Se desistires até ao dia anterior ao Open CAL, recebes a taxa de inscrição por inteiro. Depois disso não há lugar a reembolso."
+					},
+					{
+						"question": "Tenho de representar um clube?",
+						"answer": "Não. Na ficha de atleta indicas a equipa que representas — clube, ginásio ou nenhuma. A organização procura evitar Battles entre atletas da mesma equipa."
+					}
+				]
+			},
+			{
+				"title": "Open CAL",
+				"items": [
+					{
+						"question": "O Open CAL é obrigatório?",
+						"answer": "Sim, para todos os atletas inscritos, salvo casos excecionais justificados e aceites pela organização. É no Open CAL que é definida a tua divisão."
+					},
+					{
+						"question": "E se não conseguir concluir a rotina?",
+						"answer": "Não há problema. Podes terminar um exercício antecipadamente e avançar para o seguinte, e a tua divisão é atribuída com base no que conseguires executar."
+					},
+					{
+						"question": "Quando fico a conhecer a rotina?",
+						"answer": "Pelo menos 30 dias antes do evento, pelos meios oficiais de comunicação da CAL."
+					},
+					{
+						"question": "Posso escolher a minha divisão?",
+						"answer": "Não. A divisão é atribuída com base na tua classificação no Open CAL e mantém-se inalterada até ao fim da época desportiva."
+					}
+				]
+			},
+			{
+				"title": "Época regular",
+				"items": [
+					{
+						"question": "Em quantas Provas vou competir?",
+						"answer": "Em pelo menos três das quatro Provas da época regular (dependendo do número de atletas inscritos), com uma Battle em cada uma."
+					},
+					{
+						"question": "Como é escolhido o meu adversário?",
+						"answer": "Os emparelhamentos são definidos pela organização, com base na proximidade no ranking. Nunca defrontas o mesmo atleta duas vezes na mesma época regular."
+					},
+					{
+						"question": "O que acontece se faltar a uma Prova?",
+						"answer": "Uma ausência vale zero pontos. Se a falta for justificada e aceite pela organização, a Battle é reagendada sempre que possível."
+					},
+					{
+						"question": "Que material posso levar?",
+						"answer": "O calçado desportivo é obrigatório. Podes usar magnésio, o teu próprio cinto de lastro, wrist wraps e tape, mas as cargas e os coletes de peso são sempre os da organização. A lista completa está na página do <openCal>Open CAL</openCal>."
+					},
+					{
+						"question": "Posso contestar uma decisão dos júris?",
+						"answer": "Não. As decisões sobre a validade das repetições são imediatas e finais, e não há revisão por vídeo. Já as decisões da organização que te afetem podem ser contestadas por escrito, até 72 horas depois de comunicadas."
+					}
+				]
+			},
+			{
+				"title": "Grand Final e prémios",
+				"items": [
+					{
+						"question": "Quem se qualifica para a Grand Final?",
+						"answer": "Os oito melhores do ranking de cada categoria e divisão no fim da época regular, ou os quatro primeiros nas divisões com menos de oito atletas."
+					},
+					{
+						"question": "Há prémios?",
+						"answer": "Sim, para os três primeiros da Grand Final e para os três primeiros do ranking da época regular, em cada categoria e divisão. A natureza e o valor dos prémios são anunciados antes da Grand Final."
+					}
+				]
+			},
+			{
+				"title": "Outras dúvidas",
+				"items": [
+					{
+						"question": "Vão ser publicadas fotos e vídeos meus?",
+						"answer": "Só com o teu consentimento, dado num documento à parte que podes revogar a qualquer momento. Recusar não impede a tua participação. Todas as fotografias tiradas nos eventos são disponibilizadas aos atletas. As classificações e os resultados são sempre públicos."
+					},
+					{
+						"question": "Onde acompanho as novidades?",
+						"answer": "Neste site, na nossa página do Instagram <instagramLink>{instagram}</instagramLink> e, depois de te inscreveres, no grupo oficial de mensagens da Liga, onde é feita toda a comunicação com os atletas."
+					}
+				]
+			}
+		],
+		"more": {
+			"title": "Não encontraste a resposta?",
+			"body": "Fala connosco. O Regulamento Interno tem todos os detalhes e prevalece sobre este resumo."
 		}
 	},
 	"notFound": {

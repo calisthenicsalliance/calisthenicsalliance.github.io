@@ -1,7 +1,8 @@
-import { ArrowRight, CalendarDays, MapPin, Signal } from "lucide-react";
+import { ArrowRight, CalendarDays, ListOrdered, MapPin, Signal } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { openCalRoutines } from "@/content/routines";
 import { openCal } from "@/content/season";
 import { formatDate } from "@/lib/format";
 import { buttonVariants } from "@/components/ui/button";
@@ -19,6 +20,22 @@ export function NextEvent() {
 		{ icon: CalendarDays, label: t("dateLabel"), value: formatDate(openCal.date, locale) },
 		{ icon: MapPin, label: t("venueLabel"), value: <VenueLink event={openCal} /> },
 		{ icon: Signal, label: t("levelLabel"), value: t("level") },
+		...(openCalRoutines
+			? [
+					{
+						icon: ListOrdered,
+						label: t("routinesLabel"),
+						value: (
+							<Link
+								href="/open-cal#routines"
+								className="inline-flex items-center gap-1.5 text-brand transition-colors hover:text-brand-bright">
+								{t("routinesValue")}
+								<ArrowRight className="size-4" />
+							</Link>
+						),
+					},
+				]
+			: []),
 	];
 
 	return (

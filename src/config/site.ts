@@ -27,15 +27,34 @@ export const site = {
 	registrationUrl: "https://forms.gle/bsuBe6Xymf7QoNzFA",
 	regulation: {
 		pt: "/regulations/cal-regulamento.pdf",
-		version: "1.0",
-		publishedAt: "2026-09-08",
+		version: "1.01",
+		publishedAt: "2026-09-18",
 	},
 } as const;
 
-export const navigation = [
-	{ href: "/about", key: "about" },
-	{ href: "/open-cal", key: "openCal" },
+export interface NavLink {
+	href: string;
+	key: string;
+}
+
+// a group opens a dropdown on the desktop bar
+export interface NavGroup {
+	key: string;
+	links: NavLink[];
+}
+
+export const navigation: (NavLink | NavGroup)[] = [
+	{
+		key: "league",
+		links: [
+			{ href: "/about", key: "about" },
+			{ href: "/partners", key: "partners" },
+		],
+	},
+	{ key: "events", links: [{ href: "/open-cal", key: "openCal" }] },
 	{ href: "/register", key: "register" },
 	{ href: "/rankings", key: "rankings" },
-	{ href: "/partners", key: "partners" },
-] as const;
+	{ href: "/faq", key: "faq" },
+];
+
+export const navigationLinks = navigation.flatMap((item) => ("links" in item ? item.links : [item]));

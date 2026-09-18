@@ -2,7 +2,7 @@ import { Mail } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
-import { navigation, site } from "@/config/site";
+import { navigationLinks, site } from "@/config/site";
 import { Logo } from "@/components/ui/logo";
 import { InstagramIcon } from "@/components/ui/icons";
 import { Container } from "@/components/shared/container";
@@ -27,7 +27,7 @@ export function Footer() {
 						<h2 className="text-xs font-semibold tracking-[0.25em] text-brand uppercase">
 							{t("footer.navigation")}
 						</h2>
-						{navigation.map((item) => (
+						{navigationLinks.map((item) => (
 							<Link
 								key={item.href}
 								href={item.href}

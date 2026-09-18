@@ -31,15 +31,22 @@ interface SectionHeaderProps {
 	lead?: string;
 	align?: "start" | "center";
 	className?: string;
+	leadClassName?: string;
 }
 
-export function SectionHeader({ eyebrow, title, lead, align = "start", className }: SectionHeaderProps) {
+export function SectionHeader({ eyebrow, title, lead, align = "start", className, leadClassName }: SectionHeaderProps) {
 	return (
 		<div className={cn("flex flex-col gap-5", align === "center" && "items-center text-center", className)}>
 			{eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
 			<h2 className="text-4xl sm:text-5xl lg:text-6xl">{title}</h2>
 			{lead ? (
-				<p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{lead}</p>
+				<p
+					className={cn(
+						"max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg",
+						leadClassName,
+					)}>
+					{lead}
+				</p>
 			) : null}
 		</div>
 	);

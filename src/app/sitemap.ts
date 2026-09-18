@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
-import { navigation, site } from "@/config/site";
+import { navigationLinks, site } from "@/config/site";
 import { routing } from "@/i18n/routing";
 
 // required for output: export
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const paths = ["", ...navigation.map((item) => item.href)];
+	const paths = ["", ...navigationLinks.map((item) => item.href)];
 
 	return routing.locales.flatMap((locale) =>
 		paths.map((path) => ({

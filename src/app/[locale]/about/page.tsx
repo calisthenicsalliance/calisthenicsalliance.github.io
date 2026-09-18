@@ -75,7 +75,6 @@ export default async function AboutPage({ params }: LocaleProps) {
 				</div>
 			</Section>
 
-			{/* The regulation itself: a summary lives on this site, the PDF is the source of truth. */}
 			<Section>
 				<Reveal>
 					<Card className="flex flex-col gap-6 border-brand/40 bg-gradient-to-br from-brand/15 to-transparent sm:p-12">

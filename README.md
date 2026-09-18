@@ -44,7 +44,7 @@ Other scripts:
 
 ```sh
 npm run build       # static export into ./out
-npm run start       # run the production server locally
+npm run start       # serve the static export locally
 npm run typecheck   # tsc --noEmit
 npm run lint        # eslint
 npm run format      # prettier
@@ -57,20 +57,22 @@ npm run assets      # regenerate partner logos and favicons from brand/
 
 Content is deliberately kept out of the components. Almost every change is a data edit:
 
-| What                                                     | Where                                 |
-| -------------------------------------------------------- | ------------------------------------- |
-| Contacts, Instagram, registration form URL, navigation   | `src/config/site.ts`                  |
-| Event dates, venues, divisions, scoring, exercises, fees | `src/content/season.ts`               |
-| Partner clubs                                            | `src/content/partners.ts`             |
-| **All** user-facing text, both languages                 | `src/translations/pt.json`, `en.json` |
-| The regulation PDF                                       | `public/regulations/`                 |
-| Original logo files (not deployed)                       | `brand/`                              |
+| What                                                   | Where                                 |
+| ------------------------------------------------------ | ------------------------------------- |
+| Contacts, Instagram, registration form URL, navigation | `src/config/site.ts`                  |
+| Event dates, venues, scoring, fees                     | `src/content/season.ts`               |
+| Partner clubs                                          | `src/content/partners.ts`             |
+| Announcements (the red bar and the hero notice)        | `src/content/news.ts`                 |
+| Event routines                                         | `src/content/routines.ts`             |
+| **All** user-facing text, both languages               | `src/translations/pt.json`, `en.json` |
+| The regulation PDF                                     | `public/regulations/`                 |
+| Original logo files (not deployed)                     | `brand/`                              |
 
 Both translation files must always hold the same set of keys. Lists (`items`, `steps`, …) are plain JSON arrays read with `t.raw()`.
 
 ### Adding a season event
 
-Add an entry to `season.events` in `src/content/season.ts`. Give it a `date` to have it appear on the timeline and in the countdown; leave `date: null` and it renders as "to be announced". Add a `slug` only when the event gets a page of its own.
+Add an entry to `season.events` in `src/content/season.ts`. Give it a `date` to have it appear on the timeline and in the countdown; leave `date: null` and it renders as "to be announced". Add a `slug` only when the event gets a page of its own, and list that page under `events` in `navigation` (`src/config/site.ts`) so it shows up in the menu.
 
 ### Brand assets
 
@@ -97,22 +99,23 @@ brand/cal-transparent.png  ->  public/logos/cal.png             downscaled to 32
 brand/cal.png              ->  src/app/{icon,apple-icon}.png    favicons
 ```
 
-Partner logos arrive with mismatched backgrounds (dark art on white, white type on black, colour art on white), so each is keyed differently before it can sit on the site's dark cards. To add one: drop the original into `brand/`, add an entry to `PARTNER_LOGOS` in `scripts/prepare-assets.mjs`, run `npm run assets`, then commit the generated PNGs — the deploy workflow never runs sharp.
+Partner logos arrive with mismatched backgrounds (dark art on white, white type on black, colour art on white), so each is keyed differently before it can sit on the site's dark cards. To add one: drop the original into `brand/`, add an entry to `PARTNER_LOGOS` in `scripts/prepare-assets.mjs`, run `npm run assets`, then commit the generated PNGs — the Cloudflare build never runs sharp.
 
 <br>
 
 # Deployment
 
-Cloudflare builds and publishes the site. Its project settings must be:
+Cloudflare Workers Builds builds and publishes the site. Its settings must be:
 
 ```
-Build command:           npm run build
-Build output directory:  out
-Framework preset:        None
+Build command:    npm run build
+Deploy command:   npx wrangler deploy
+Version command:  npx wrangler versions upload
+Root directory:   /
 ```
 
 The Worker is assets-only — `wrangler.toml` declares no `main`, so no code runs and no CPU
-is consumed. `output: "export"` produces the plain files it serves. Do **not** use
+is consumed. `output: "export"` produces the plain files in `out/` that it serves. Do **not** use
 `opennextjs-cloudflare`: that adapter wraps the Next.js server for Workers, so every request
 re-renders a page that never changes, and RSC prefetches exceed the Worker CPU limit.
 

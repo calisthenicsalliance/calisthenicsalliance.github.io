@@ -37,7 +37,7 @@ export default async function RankingsPage({ params }: LocaleProps) {
 				lead={t("hero.lead")}
 			/>
 
-			{/* Standings go live after the opening event; until then this is a designed empty state. */}
+			{/* standings go live after the opening event */}
 			<Section tone="raised">
 				<Reveal>
 					<Card className="flex flex-col items-center gap-6 bg-hatch py-20 text-center">

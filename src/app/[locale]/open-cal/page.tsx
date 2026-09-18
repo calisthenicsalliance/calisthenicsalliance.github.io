@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { ArrowDown } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates, localeParams, type Locale, type LocaleProps } from "@/i18n/routing";
+import { openCalRoutines } from "@/content/routines";
 import { openCal, season } from "@/content/season";
 import { formatDate, formatDayMonth } from "@/lib/format";
-import { CtaBand } from "@/components/sections";
+import { buttonVariants } from "@/components/ui/button";
+import { CtaBand, Routines } from "@/components/sections";
 import { Section, SectionHeader } from "@/components/shared/section";
 import { PageHero, Facts } from "@/components/shared/page-hero";
 import { OrderedList, MarkedList } from "@/components/shared/lists";
@@ -43,12 +46,20 @@ export default async function OpenCalPage({ params }: LocaleProps) {
 				title={t("hero.title")}
 				lead={t("hero.subtitle")}>
 				<Facts
+					// the venue gets the room to stay on one line
+					className="lg:grid-cols-[1fr_1.9fr_0.7fr]"
 					items={[
 						{ label: t("hero.dateLabel"), value: date },
 						{ label: t("hero.venueLabel"), value: <VenueLink event={openCal} /> },
 						{ label: t("hero.statusLabel"), value: t("hero.statusOpen") },
 					]}
 				/>
+				{openCalRoutines ? (
+					<a href="#routines" className={buttonVariants({ variant: "brand", size: "xl", className: "mt-8" })}>
+						{t("routines.cta")}
+						<ArrowDown />
+					</a>
+				) : null}
 			</PageHero>
 
 			<Section tone="raised">
@@ -56,16 +67,14 @@ export default async function OpenCalPage({ params }: LocaleProps) {
 					<div className="flex flex-col gap-8">
 						<SectionHeader eyebrow={t("what.eyebrow")} title={t("what.title")} lead={t("what.body")} />
 
-						<div className="grid gap-px overflow-hidden rounded-md border border-white/10 bg-white/10 sm:grid-cols-2">
-							{highlights.map((item, index) => (
-								<Reveal key={item.title} delay={index * 0.06} className="bg-card">
-									<div className="flex h-full flex-col gap-3 p-6">
-										<h3 className="text-xl text-brand">{item.title}</h3>
-										<p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-									</div>
-								</Reveal>
+						<Reveal className="grid gap-px overflow-hidden rounded-md border border-white/10 bg-white/10 sm:grid-cols-2">
+							{highlights.map((item) => (
+								<div key={item.title} className="flex h-full flex-col gap-3 bg-card p-6">
+									<h3 className="text-xl text-brand">{item.title}</h3>
+									<p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+								</div>
 							))}
-						</div>
+						</Reveal>
 					</div>
 
 					<Reveal delay={0.1}>
@@ -153,6 +162,8 @@ export default async function OpenCalPage({ params }: LocaleProps) {
 					</div>
 				</div>
 			</Section>
+
+			{openCalRoutines ? <Routines set={openCalRoutines} /> : null}
 
 			<CtaBand title={t("cta.title", { date: dayMonth })} lead={t("cta.lead")} />
 		</>

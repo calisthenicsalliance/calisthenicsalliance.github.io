@@ -30,7 +30,7 @@ export function SeasonTimeline() {
 					return (
 						<Reveal key={phase.title} delay={index * 0.08} className="h-full">
 							<li className="relative flex h-full flex-col gap-4 rounded-md border border-white/10 bg-black/40 p-8">
-								{/* Connector between cards on wide screens. */}
+								{/* connector between cards on wide screens */}
 								{index < phases.length - 1 ? (
 									<span
 										aria-hidden

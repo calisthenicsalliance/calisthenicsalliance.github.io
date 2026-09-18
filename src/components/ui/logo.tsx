@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
 	className?: string;
 	size?: number;
-	withWordmark?: boolean;
+	wordmarkClassName?: string;
 }
 
-export function Logo({ className, size = 44, withWordmark = true }: LogoProps) {
+export function Logo({ className, size = 44, wordmarkClassName }: LogoProps) {
 	return (
 		<span className={cn("flex items-center gap-3", className)}>
 			<Image
@@ -19,11 +19,13 @@ export function Logo({ className, size = 44, withWordmark = true }: LogoProps) {
 				className="h-auto w-auto"
 				style={{ width: size, height: size }}
 			/>
-			{withWordmark ? (
-				<span className="hidden font-display text-xl leading-none tracking-wide uppercase sm:block">
-					Calisthenics <span className="text-brand">Alliance</span>
-				</span>
-			) : null}
+			<span
+				className={cn(
+					"hidden font-display text-xl leading-none tracking-wide uppercase sm:block",
+					wordmarkClassName,
+				)}>
+				Calisthenics <span className="text-brand">Alliance</span>
+			</span>
 		</span>
 	);
 }

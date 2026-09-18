@@ -5,7 +5,8 @@ import { localeAlternates, localeParams, type Locale, type LocaleProps } from "@
 import { site } from "@/config/site";
 import { season } from "@/content/season";
 import { formatCurrency, formatDate } from "@/lib/format";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants, fluidButton } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { CtaBand } from "@/components/sections";
 import { Eyebrow, Section, SectionHeader } from "@/components/shared/section";
 import { PageHero } from "@/components/shared/page-hero";
@@ -48,7 +49,7 @@ export default async function RegisterPage({ params }: LocaleProps) {
 						href={site.registrationUrl}
 						target="_blank"
 						rel="noreferrer noopener"
-						className={buttonVariants({ variant: "brand", size: "2xl" })}>
+						className={cn(buttonVariants({ variant: "brand", size: "2xl" }), fluidButton)}>
 						{common("registerLong", { season: season.label })}
 						<ArrowRight />
 					</a>
@@ -113,16 +114,23 @@ export default async function RegisterPage({ params }: LocaleProps) {
 							<Eyebrow>{t("payment.eyebrow")}</Eyebrow>
 							<h3 className="text-2xl">{t("payment.title")}</h3>
 
+							<div className="flex flex-col gap-2 rounded-md border border-brand/50 bg-card p-6">
+								<div className="flex items-center justify-between gap-3">
+									<span className="text-[0.65rem] tracking-[0.25em] text-brand uppercase">
+										{t("payment.cashLabel")}
+									</span>
+									<span className="shrink-0 rounded-sm bg-brand px-2 py-0.5 text-[0.6rem] font-bold tracking-[0.15em] text-white uppercase">
+										{t("payment.preferred")}
+									</span>
+								</div>
+								<span className="text-sm">{t("payment.cashNote")}</span>
+							</div>
+
 							<div className="grid gap-4 sm:grid-cols-[1.7fr_1fr]">
-								<div className="flex flex-col gap-2 rounded-md border border-brand/50 bg-card p-6">
-									<div className="flex items-center justify-between gap-3">
-										<span className="text-[0.65rem] tracking-[0.25em] text-brand uppercase">
-											{t("payment.ibanLabel")}
-										</span>
-										<span className="shrink-0 rounded-sm bg-brand px-2 py-0.5 text-[0.6rem] font-bold tracking-[0.15em] text-white uppercase">
-											{t("payment.ibanNote")}
-										</span>
-									</div>
+								<div className="flex flex-col gap-2 rounded-md border border-white/10 bg-card p-6">
+									<span className="text-[0.65rem] tracking-[0.25em] text-muted-foreground uppercase">
+										{t("payment.ibanLabel")}
+									</span>
 									<span className="font-mono text-sm whitespace-nowrap">{site.payment.iban}</span>
 								</div>
 								<div className="flex flex-col gap-2 rounded-md border border-white/10 bg-card p-6">

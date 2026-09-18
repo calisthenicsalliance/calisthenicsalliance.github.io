@@ -3,7 +3,8 @@ import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 import { site } from "@/config/site";
 import { season } from "@/content/season";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants, fluidButton } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Container } from "@/components/shared/container";
 import { Marquee } from "@/components/shared/marquee";
 
@@ -35,7 +36,7 @@ export function CtaBand({ title, lead, secondaryLabel, secondaryHref, note }: Ct
 						href={site.registrationUrl}
 						target="_blank"
 						rel="noreferrer noopener"
-						className={buttonVariants({ variant: "brand", size: "2xl" })}>
+						className={cn(buttonVariants({ variant: "brand", size: "2xl" }), fluidButton)}>
 						{common("registerLong", { season: season.label })}
 						<ArrowRight />
 					</a>
@@ -44,11 +45,14 @@ export function CtaBand({ title, lead, secondaryLabel, secondaryHref, note }: Ct
 							href={secondaryHref}
 							target="_blank"
 							rel="noreferrer noopener"
-							className={buttonVariants({
-								variant: "outline",
-								size: "2xl",
-								className: "border-white/25 bg-white/5",
-							})}>
+							className={cn(
+								buttonVariants({
+									variant: "outline",
+									size: "2xl",
+									className: "border-white/25 bg-white/5",
+								}),
+								fluidButton,
+							)}>
 							{secondaryLabel}
 						</NextLink>
 					) : null}
